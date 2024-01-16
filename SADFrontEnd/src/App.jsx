@@ -1,16 +1,73 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import HomeLayout from "./Components/HomeLayout";
-import AboutPage from "./Components/AboutPage";
-
+import {
+  AddJob,
+  Admin,
+  AllJobs,
+  DashboardLayout,
+  DeleteJob,
+  EditJob,
+  Error,
+  HomeLayout,
+  LandingPage,
+  Login,
+  ProfilePage,
+  RegisterPage,
+  StatsPage,
+} from "./Pages";
 /* Setting of the web-url routes using createBrowserRouter from ES7 */
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
-  },
-  {
-    path: "/about",
-    element: <AboutPage />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "dashboard",
+        element: <DashboardLayout />,
+      },
+      {
+        path: "/profiler",
+        element: <ProfilePage />,
+      },
+      {
+        path: "/Stats",
+        element: <StatsPage />,
+      },
+      {
+        index: true,
+        path: "Landing",
+        element: <LandingPage />,
+      },
+
+      {
+        path: "/edit",
+        element: <EditJob />,
+      },
+      {
+        path: "/delete",
+        element: <DeleteJob />,
+      },
+      {
+        path: "/alljobs",
+        element: <AllJobs />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
+      },
+      {
+        path: "/addJob",
+        element: <AddJob />,
+      },
+    ],
   },
 ]);
 
