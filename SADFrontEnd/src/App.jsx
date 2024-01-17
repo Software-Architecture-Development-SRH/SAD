@@ -30,42 +30,43 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "dashboard",
-        element: <DashboardLayout />,
-      },
-      {
-        path: "/profiler",
-        element: <ProfilePage />,
-      },
-      {
-        path: "/Stats",
-        element: <StatsPage />,
-      },
-      {
         index: true,
         path: "/",
         element: <LandingPage />,
       },
-
       {
-        path: "/edit",
-        element: <EditJob />,
-      },
-      {
-        path: "/delete",
-        element: <DeleteJob />,
-      },
-      {
-        path: "/alljobs",
-        element: <AllJobs />,
-      },
-      {
-        path: "/admin",
-        element: <Admin />,
-      },
-      {
-        path: "/addJob",
-        element: <AddJob />,
+        path: "Dashboard",
+        element: <DashboardLayout />,
+        children: [
+          {
+            index: true,
+            element: <AddJob />,
+          },
+          {
+            path: "profile",
+            element: <ProfilePage />,
+          },
+          {
+            path: "Stats",
+            element: <StatsPage />,
+          },
+          {
+            path: "edit",
+            element: <EditJob />,
+          },
+          {
+            path: "delete",
+            element: <DeleteJob />,
+          },
+          {
+            path: "alljobs",
+            element: <AllJobs />,
+          },
+          {
+            path: "admin",
+            element: <Admin />,
+          },
+        ],
       },
     ],
   },
