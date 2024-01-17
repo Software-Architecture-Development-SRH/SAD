@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         index: true,
-        path: "Landing",
+        path: "/",
         element: <LandingPage />,
       },
 

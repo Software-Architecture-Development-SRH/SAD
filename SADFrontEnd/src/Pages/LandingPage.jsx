@@ -3,7 +3,7 @@ const LandingPage = () => {
   return (
     <Wrapper>
       <h2>Landing Page</h2>
-      <div></div>
+      <div className="content"> some content</div>
     </Wrapper>
   );
 };
