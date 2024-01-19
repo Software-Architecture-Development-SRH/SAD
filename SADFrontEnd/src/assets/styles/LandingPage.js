@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
-  nav {
+  .nav {
     width: var(--fluid-width);
     max-width: var(--max-width);
     margin: 0 auto;
@@ -9,7 +9,12 @@ const Wrapper = styled.section`
     display: flex;
     align-items: center;
   }
-  .page {
+  .logo{
+    width: 150px;
+    display: flex;
+    margin: .75rem 2.3rem; 
+  }
+  .page{
     min-height: calc(100vh - var(--nav-height));
     display: grid;
     align-items: center;
@@ -45,6 +50,11 @@ const Wrapper = styled.section`
     .main-img {
       display: block;
     }
+    .logo{
+    width: 180px;
+    display: flex;
+    margin: 1.75rem 17.8rem; 
+  }
   }
 `;
 export default Wrapper;
