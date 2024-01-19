@@ -3,7 +3,7 @@ import Wrapper from "../assets/styles/Dashboard";
 import MobileSidebar from "../components/MobileSidebar";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 //context prop for global use
 const DashboardContext = createContext();
@@ -12,7 +12,7 @@ const DashboardLayout = () => {
   // temporary
   const user = { name: "Vedant" };
   // for the Sidebar to toggel in mobile view
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showMobileSidebar, setMobileShowSidebar] = useState(false);
   // for the Theme to toggel white and black
   //const [isDarkTheme, setDarkTheme] = useState(false);
 
@@ -20,8 +20,9 @@ const DashboardLayout = () => {
     console.log("Dark theme has been toggled !");
   };
 
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
+  const toggleMobileSidebar = () => {
+    setShowMobileSidebar(!showMobieSidebar);
+    console.log("---------------------Side bar toggeled !");
   };
 
   const logoutUser = async () => {
@@ -30,7 +31,13 @@ const DashboardLayout = () => {
 
   return (
     <DashboardContext.Provider
-      value={(user, showSidebar, toggleDarkTheme, toggleSidebar, logoutUser)}
+      value={
+        (user,
+        showMobileSidebar,
+        toggleDarkTheme,
+        toggleMobileSidebar,
+        logoutUser)
+      }
     >
       <Wrapper>
         <main className="dashboard">
@@ -48,5 +55,5 @@ const DashboardLayout = () => {
   );
 };
 // instead of exporting the main content this is a useHook for it
-//export const useDashboardContext = () => useContext(DashboardContext);
+export const useDashboardContext = () => useContext(DashboardContext);
 export default DashboardLayout;

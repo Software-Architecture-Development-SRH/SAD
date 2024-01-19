@@ -10,6 +10,7 @@
   },
   "web_accessible_resources": [
     "src/assets/index.css",
-    "src/assets/locales/en/translation.json"
+    "src/assets/styles.css",
+    "srcassetslocalesen\translation.json"
   ]
 }

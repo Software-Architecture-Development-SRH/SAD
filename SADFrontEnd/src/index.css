@@ -15,7 +15,7 @@ html {
 :root {
   /* colors */
   --primary-50: #e0fcff;
-  --primary-100: #bef8fd;
+  --primary-100: #fbefff;
   --primary-200: #fbeeff;
   --primary-300: #f3ccff;
   --primary-400: #e79aff;
@@ -54,7 +54,7 @@ html {
   --max-width: 1120px;
   --fixed-width: 600px;
   --fluid-width: 90vw;
-  --nav-height: 6rem;
+  --nav-height: 4.5rem;
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
