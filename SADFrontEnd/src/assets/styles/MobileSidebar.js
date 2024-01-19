@@ -34,16 +34,16 @@ const Wrapper = styled.aside`
   }
   .close-btn {
     position: absolute;
-    top: 10px;
-    left: 10px;
+    align-items: center;
+    margin-top: -1rem;
     background: transparent;
     border-color: transparent;
     font-size: 2rem;
-    color: var(--red-dark);
+    color: black;
     cursor: pointer;
   }
   .nav-links {
-    padding-top: 2rem;
+    padding-top: 3rem;
     display: flex;
     flex-direction: column;
   }
@@ -54,18 +54,25 @@ const Wrapper = styled.aside`
     padding: 1rem 0;
     text-transform: capitalize;
     transition: var(--transition);
+    font-size: 1.5rem;
   }
   .nav-link:hover {
-    color: var(--primary-500);
+    color: var(--primary-600);
   }
   .icon {
-    font-size: 1.5rem;
-    margin-right: 1rem;
+    font-size: 2.5rem;
+    margin-right: 0.9rem;
     display: grid;
     place-items: center;
   }
   .active {
-    color: var(--primary-500);
+    color: var(--primary-600);
+  }
+  .logo {
+    display: flex;
+    align-item: center;
+    margin-top: 6rem;
+    width: 13rem;
   }
 `;
 export default Wrapper;

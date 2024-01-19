@@ -2,6 +2,9 @@ import Wrapper from "../assets/styles/LandingPage";
 import { Link } from 'react-router-dom';
 import MainImage from "../assets/images/MainImage.svg"
 import Logo from "../components/Logo";
+
+
+
 const LandingPage = () => {
   return (
     <Wrapper>
