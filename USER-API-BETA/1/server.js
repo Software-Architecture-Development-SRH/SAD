@@ -9,7 +9,7 @@ import mongoose from 'mongoose';
 
 
 //importing routers
-import jobRouter from './routes/jobRouter.js';
+import authRouter from './routes/authRoutes.js';
 
 
 // middleware
@@ -28,7 +28,7 @@ app.get('/', (req, res)=> {
 });
 
 
-app.use('/api/v1/jobs', jobRouter);
+app.use('/api/v1/auth', authRouter);
 
 
   app.use('*', (req, res) => {
@@ -39,7 +39,7 @@ app.use('/api/v1/jobs', jobRouter);
   app.use(errorHandlerMiddleware);
 
 
-const port = process.env.PORT || 5100
+const port = process.env.PORT || 5200
 
 try {
     await mongoose.connect(process.env.MONGO_URL);
