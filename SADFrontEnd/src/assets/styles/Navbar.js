@@ -13,7 +13,7 @@ const Wrapper = styled.nav`
     align-items: center;
     justify-content: space-between;
   }
-  .Toggle-btn {
+  .toggle-btn {
     background: transparent;
     border-color: transparent;
     font-size: 2.25rem;

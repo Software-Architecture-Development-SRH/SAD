@@ -12,7 +12,7 @@ const DashboardLayout = () => {
   // temporary
   const user = { name: "Vedant" };
   // for the Sidebar to toggel in mobile view
-  const [showMobileSidebar, setMobileShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
   // for the Theme to toggel white and black
   //const [isDarkTheme, setDarkTheme] = useState(false);
 
@@ -20,9 +20,9 @@ const DashboardLayout = () => {
     console.log("Dark theme has been toggled !");
   };
 
-  const toggleMobileSidebar = () => {
-    setShowMobileSidebar(!showMobieSidebar);
-    console.log("---------------------Side bar toggeled !");
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+    console.log("-------Side bar toggeled !");
   };
 
   const logoutUser = async () => {
@@ -31,13 +31,7 @@ const DashboardLayout = () => {
 
   return (
     <DashboardContext.Provider
-      value={
-        (user,
-        showMobileSidebar,
-        toggleDarkTheme,
-        toggleMobileSidebar,
-        logoutUser)
-      }
+      value={{ user, showSidebar, toggleDarkTheme, toggleSidebar, logoutUser }}
     >
       <Wrapper>
         <main className="dashboard">

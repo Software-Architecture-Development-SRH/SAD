@@ -32,7 +32,7 @@ const Wrapper = styled.aside`
     align-items: center;
     flex-direction: column;
   }
-  .close-btn {
+  .closebtn {
     position: absolute;
     align-items: center;
     margin-top: -1rem;
