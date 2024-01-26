@@ -14,6 +14,14 @@ import {
   RegisterPage,
   StatsPage,
 } from "./Pages";
+
+export const checkDefaultTheme = () => {
+  const isDarkTheme = localStorage.getItem("darkTheme") === "false";
+  document.body.classList.toggle("darkTheme", isDarkTheme);
+  return isDarkTheme;
+};
+checkDefaultTheme();
+
 /* Setting of the web-url routes using createBrowserRouter from ES7 */
 const router = createBrowserRouter([
   {

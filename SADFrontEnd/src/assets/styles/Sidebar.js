@@ -42,7 +42,7 @@ const Wrapper = styled.aside`
       transition: padding-left 0.3s ease-in-out;
     }
     .nav-link:hover {
-      padding-left: 3rem;
+      padding-left: 4rem;
       color: var(--primary-500);
       transition: var(--transition);
     }

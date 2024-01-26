@@ -4,7 +4,7 @@ import MobileSidebar from "../components/MobileSidebar";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import { createContext, useState, useContext } from "react";
-
+import { checkDefaultTheme } from "../App";
 //context prop for global use
 const DashboardContext = createContext();
 
@@ -14,10 +14,15 @@ const DashboardLayout = () => {
   // for the Sidebar to toggel in mobile view
   const [showSidebar, setShowSidebar] = useState(false);
   // for the Theme to toggel white and black
-  //const [isDarkTheme, setDarkTheme] = useState(false);
+  const [isDarkTheme, setDarkTheme] = useState(checkDefaultTheme());
 
   const toggleDarkTheme = () => {
+    const newDarkTheme = !isDarkTheme;
+    setDarkTheme(newDarkTheme);
     console.log("Dark theme has been toggled !");
+    document.body.classList.toggle("dark-theme", newDarkTheme);
+    // to access it outside the dashboard page(landing,register,login)
+    localStorage.setItem("darkTheme", newDarkTheme);
   };
 
   const toggleSidebar = () => {
@@ -26,12 +31,19 @@ const DashboardLayout = () => {
   };
 
   const logoutUser = async () => {
-    console.log("User has been logged out !");
+    console.log("time user has been logged out !");
   };
 
   return (
     <DashboardContext.Provider
-      value={{ user, showSidebar, toggleDarkTheme, toggleSidebar, logoutUser }}
+      value={{
+        user,
+        showSidebar,
+        toggleDarkTheme,
+        toggleSidebar,
+        logoutUser,
+        isDarkTheme,
+      }}
     >
       <Wrapper>
         <main className="dashboard">

@@ -5,12 +5,13 @@ import {
 } from "react-icons/tb";
 import Logo from "./Logo";
 import { useDashboardContext } from "../Pages/DashboardLayout";
+import LogoutContainer from "./LogoutContainer";
+import ThemeToggle from "./ThemeToggle";
+
 const Navbar = () => {
   // for the toggle sidebar function we will use context function
   const { toggleSidebar, showSidebar } = useDashboardContext();
-  const clickfunction = () => {
-    console.log("toggle buton working-------------");
-  };
+
   return (
     <Wrapper>
       <div className="nav-center">
@@ -21,16 +22,19 @@ const Navbar = () => {
           onClick={toggleSidebar}
         >
           {showSidebar ? (
-            <TbLayoutSidebarLeftCollapseFilled /> // Show this icon when the sidebar is expanded
+            <TbLayoutSidebarLeftCollapseFilled /> // This icon when the sidebar is expanded
           ) : (
-            <TbLayoutSidebarLeftExpandFilled /> // Show this icon when the sidebar is collapsed
+            <TbLayoutSidebarLeftExpandFilled /> //  and this when the sidebar is collapsed
           )}
         </button>
         <div>
           <Logo />
           <h4 className="logo-text">Dashboard</h4>
         </div>
-        <div className="btn-container">toggle/logout</div>
+        <div className="btn-container">
+          <ThemeToggle />
+          <LogoutContainer />
+        </div>
       </div>
     </Wrapper>
   );

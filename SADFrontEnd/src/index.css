@@ -65,9 +65,9 @@ html {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   /* DARK MODE */
 
-  --dark-mode-bg-color: #333;
+  --dark-mode-bg-color: #252525;
   --dark-mode-text-color: #f0f0f0;
-  --dark-mode-bg-secondary-color: #3f3f3f;
+  --dark-mode-bg-secondary-color: #1a161c;
   --dark-mode-text-secondary-color: var(--grey-300);
 
   --background-color: var(--grey-50);
@@ -134,7 +134,7 @@ ul {
   border: transparent;
   border-radius: var(--border-radius);
   letter-spacing: var(--letter-spacing);
-  padding: 0.375rem 0.75rem;
+  padding: 0.36rem 0.72rem;
   box-shadow: var(--shadow-1);
   transition: var(--transition);
   text-transform: capitalize;
