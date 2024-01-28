@@ -28,11 +28,13 @@ app.post('/upload', upload.single('file'), (req, res) => {
     return res.status(400).json({ error: 'No file uploaded' });
   }
 
-  // Upload file to Cloudinary
-  cloudinary.uploader.upload_stream({ resource_type: 'raw' }, (error, result) => {
-    if (error) {
-      return res.status(500).json({ error: 'Error uploading file to Cloudinary' });
-    }
+  // Upload file to Cloudinary in the "CV" folder
+  cloudinary.uploader.upload_stream(
+    { folder: 'CV' }, // Specify the folder as 'CV'
+    (error, result) => {
+      if (error) {
+        return res.status(500).json({ error: 'Error uploading file to Cloudinary' });
+      }
 
     // Save document details to your database (this part depends on your setup)
     const documentId = Math.random().toString(36).substring(7);
@@ -49,4 +51,4 @@ app.post('/upload', upload.single('file'), (req, res) => {
 // Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
-});
+}); 
