@@ -8,11 +8,37 @@ const Wrapper = styled.section`
     height: var(--nav-height);
     display: flex;
     align-items: center;
+    
+    background-color: #b148d2;
+    
+  }
+  .nav-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+    
+  }
+  .logo-cont{
+
+    flex-grow:1;
+    margin: 0;
   }
   .logo{
     width: 150px;
     display: flex;
-    margin: .75rem 2.3rem; 
+    
+  }
+  
+  
+
+  .box {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    
   }
   .page{
     min-height: calc(100vh - var(--nav-height));
@@ -20,15 +46,20 @@ const Wrapper = styled.section`
     align-items: center;
     margin-top: -3rem;
   }
+  
+
   h1 {
-    font-weight: 700;
+    font-weight: 900;
     span {
       color: var(--primary-500);
     }
     margin-bottom: 1.5rem;
+    font-size: 2.3rem; 
   }
   p {
-    line-height: 2;
+    line-height: 3;
+    font-size: 1.2rem;
+    font-style: italic;
     color: var(--text-secondary-color);
     margin-bottom: 1.5rem;
     max-width: 35em;
@@ -40,7 +71,7 @@ const Wrapper = styled.section`
     display: none;
   }
   .btn {
-    padding: 0.75rem 1rem;
+    padding: 1.0rem 1rem;
   }
   @media (min-width: 992px) {
     .page {

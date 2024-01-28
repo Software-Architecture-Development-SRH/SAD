@@ -14,6 +14,9 @@ import {
   RegisterPage,
   StatsPage,
 } from "./Pages";
+import {action as registerAction} from './Pages/RegisterPage';
+import {action as loginAction} from './Pages/Login';
+
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "false";
@@ -21,7 +24,6 @@ export const checkDefaultTheme = () => {
   return isDarkTheme;
 };
 checkDefaultTheme();
-
 /* Setting of the web-url routes using createBrowserRouter from ES7 */
 const router = createBrowserRouter([
   {
@@ -32,10 +34,12 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <RegisterPage />,
+        action: registerAction, 
       },
       {
         path: "login",
         element: <Login />,
+        action: loginAction,
       },
       {
         index: true,
