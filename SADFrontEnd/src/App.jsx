@@ -14,6 +14,7 @@ import {
   RegisterPage,
   StatsPage,
 } from "./Pages";
+import {action as registerAction} from './Pages/RegisterPage';
 /* Setting of the web-url routes using createBrowserRouter from ES7 */
 const router = createBrowserRouter([
   {
@@ -24,6 +25,7 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <RegisterPage />,
+        action: registerAction 
       },
       {
         path: "login",
