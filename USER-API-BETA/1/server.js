@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import express from 'express';
+import cors from 'cors';
 const app = express();
 import morgan from 'morgan';
 import mongoose from 'mongoose';
@@ -19,7 +20,7 @@ if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'));
 }
 
-
+app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
