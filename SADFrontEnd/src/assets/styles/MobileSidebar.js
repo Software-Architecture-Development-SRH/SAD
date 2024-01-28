@@ -32,7 +32,7 @@ const Wrapper = styled.aside`
     align-items: center;
     flex-direction: column;
   }
-  .close-btn {
+  .closebtn {
     position: absolute;
     align-items: center;
     margin-top: -1rem;
@@ -51,9 +51,8 @@ const Wrapper = styled.aside`
     display: flex;
     align-items: center;
     color: var(--text-secondary-color);
-    padding: 1rem 0;
+    padding: 1rem 2rem;
     text-transform: capitalize;
-    transition: var(--transition);
     font-size: 1.5rem;
   }
   .nav-link:hover {
@@ -72,7 +71,7 @@ const Wrapper = styled.aside`
     display: flex;
     align-item: center;
     margin-top: 6rem;
-    width: 13rem;
+    width: 9rem;
   }
 `;
 export default Wrapper;

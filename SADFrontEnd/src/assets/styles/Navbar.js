@@ -13,7 +13,7 @@ const Wrapper = styled.nav`
     align-items: center;
     justify-content: space-between;
   }
-  .Toggle-btn {
+  .toggle-btn {
     background: transparent;
     border-color: transparent;
     font-size: 2.25rem;
@@ -28,7 +28,7 @@ const Wrapper = styled.nav`
   .logo {
     display: flex;
     align-items: center;
-    width: 135px;
+    width: 90px;
   }
   .btn-container {
     display: flex;
