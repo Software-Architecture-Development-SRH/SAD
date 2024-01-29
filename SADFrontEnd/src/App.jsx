@@ -14,9 +14,9 @@ import {
   RegisterPage,
   StatsPage,
 } from "./Pages";
-import {action as registerAction} from './Pages/RegisterPage';
-import {action as loginAction} from './Pages/Login';
-
+import { action as registerAction } from "./Pages/RegisterPage";
+import { action as loginAction } from "./Pages/Login";
+import { loader as dashboardLoader } from "./Pages/DashboardLayout";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "false";
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <RegisterPage />,
-        action: registerAction, 
+        action: registerAction,
       },
       {
         path: "login",
@@ -49,6 +49,7 @@ const router = createBrowserRouter([
       {
         path: "Dashboard",
         element: <DashboardLayout />,
+        loader: dashboardLoader,
         children: [
           {
             index: true,

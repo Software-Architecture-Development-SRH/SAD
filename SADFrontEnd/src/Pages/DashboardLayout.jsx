@@ -1,16 +1,33 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, redirect, useLoaderData, useNavigate } from "react-router-dom";
 import Wrapper from "../assets/styles/Dashboard";
 import MobileSidebar from "../components/MobileSidebar";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import { createContext, useState, useContext } from "react";
 import { checkDefaultTheme } from "../App";
+import customFetch2 from "../Utils/customFetch2";
+import customFetch from "../Utils/customFetch";
+import { toast } from "react-toastify";
+
+//loaders to pass the data
+export const loader = async () => {
+  try {
+    //to pass the user data to the dashboard through object 'data'
+    const { data } = await customFetch2.get("/users/current-user");
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error.response.data);
+    return redirect("/");
+  }
+};
+
 //context prop for global use
 const DashboardContext = createContext();
 
 const DashboardLayout = () => {
-  // temporary
-  const user = { name: "Vedant" };
+  const { user } = useLoaderData();
+  const navigate = useNavigate();
   // for the Sidebar to toggel in mobile view
   const [showSidebar, setShowSidebar] = useState(false);
   // for the Theme to toggel white and black
@@ -31,7 +48,9 @@ const DashboardLayout = () => {
   };
 
   const logoutUser = async () => {
-    console.log("time user has been logged out !");
+    navigate("/");
+    await customFetch.get("/auth/logout");
+    toast.success("Logged out successfully !");
   };
 
   return (
@@ -52,7 +71,7 @@ const DashboardLayout = () => {
           <div>
             <Navbar />
             <div className="DboardPage">
-              <Outlet />
+              <Outlet context={{ user }} />
             </div>
           </div>
         </main>

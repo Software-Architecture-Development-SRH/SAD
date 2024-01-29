@@ -7,7 +7,7 @@ import {
 } from "E:/trial/SAD/SADFrontEnd/src/Utils/constants.js";
 import { Form, useNavigation, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
-import customFetch from "../Utils/customFetch.js";
+import customFetch from "../Utils/customFetch";
 const AddJob = () => {
   const { user } = useOutletContext();
   const navigation = useNavigation();

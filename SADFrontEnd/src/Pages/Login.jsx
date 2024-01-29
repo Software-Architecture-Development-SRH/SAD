@@ -9,17 +9,13 @@ import {
 import Wrapper from "../assets/styles/registerandsignup";
 import FormRow from "../components/FormRow/";
 import { toast } from "react-toastify";
+import customFetch from "../Utils/customFetch";
 export const action = async ({ request }) => {
   const formData = await request.formData();
-  const data = Object.formEnteries(formData);
-  // const errors = { msg: "" };
-  // if (data.password.length < 3) {
-  //   errors.msg = "Password is too short !";
-  //   return errors;
-  // }
+  const data = Object.fromEntries(formData);
   try {
     await customFetch.post("/auth/login", data);
-    toast.success("Login Successful");
+    toast.success("Login successful");
     return redirect("/dashboard");
   } catch (error) {
     toast.error(error?.response?.data?.msg);
@@ -36,8 +32,8 @@ const Login = () => {
         <Logo />
         <h4>Login </h4>
         {/* {errors?.msg && <p style={{"red"}}>{errors.msg}</p>} */}
-        <FormRow type="email" name="Email" defaultvalue="ankush@gmail.com" />
-        <FormRow type="password" name="Password" defaultvalue="secret123" />
+        <FormRow type="email" name="email" defaultvalue="ankush@gmail.com" />
+        <FormRow type="password" name="password" defaultvalue="secret123" />
         <button type="submit" className="btn btn-block" disabled={isSubmitting}>
           {isSubmitting ? "submitting" : "submit"}
         </button>
