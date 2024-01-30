@@ -8,6 +8,7 @@ const Wrapper = styled.aside`
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.7);
+    box-shadow: 20px 20px 60px --primary-500, inset -20px -20px 60px #ffffff40;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -14,7 +14,7 @@ html {
 
 :root {
   /* colors */
-  --primary-50: #e0fcff;
+  --primary-50: #fff1ff;
   --primary-100: #fbefff;
   --primary-200: #fbeeff;
   --primary-300: #f3ccff;
@@ -44,11 +44,11 @@ html {
   --green-light: #d1e7dd;
   --green-dark: #0f5132;
 
-  --small-text: 0.875rem;
+  --small-text: 1rem;
   --extra-small-text: 0.7em;
   /* rest of the vars */
 
-  --border-radius: 0.4rem;
+  --border-radius: 0.6rem;
   --letter-spacing: 1px;
   --transition: 0.3s ease-in-out all;
   --max-width: 1120px;
@@ -57,9 +57,8 @@ html {
   --nav-height: 5.22rem;
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+  --shadow-2: 20px 20px 60px #00000041, inset -20px -20px 60px #ffffff40;
+  --shadow-3: 0 -10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -72,7 +71,7 @@ html {
 
   --background-color: var(--grey-50);
   --text-color: var(--grey-900);
-  --background-secondary-color: var(--white);
+  --background-secondary-color: var(--grey-100);
   --text-secondary-color: var(--grey-500);
 }
 
@@ -130,7 +129,7 @@ ul {
 .btn {
   cursor: pointer;
   color: var(--white);
-  background: var(--primary-500);
+  background: var(--primary-800);
   border: transparent;
   border-radius: var(--border-radius);
   letter-spacing: var(--letter-spacing);
@@ -141,8 +140,7 @@ ul {
   display: inline-block;
 }
 .btn:hover {
-  background: var(--primary-700);
-  box-shadow: var(--shadow-3);
+  background: var(--primary-600);
 }
 .btn-hipster {
   color: var(--primary-500);
@@ -187,11 +185,10 @@ button:disabled {
 .form {
   width: 90vw;
   max-width: var(--fixed-width);
-  background: var(--background-secondary-color);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-2);
-  padding: 2rem 2.5rem;
-  margin: 3rem auto;
+  padding: 2rem 2rem;
+  margin: 2rem auto;
 }
 .form-label {
   display: block;
