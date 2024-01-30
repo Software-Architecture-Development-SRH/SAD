@@ -2,7 +2,7 @@ import { FormRow } from '../components';
 import Wrapper from '../assets/styles/DashboardFormPage';
 import { useOutletContext } from 'react-router-dom';
 import { useNavigation, Form } from 'react-router-dom';
-import customFetch from '../utils/customFetch';
+import customFetch2 from '../Utils/customFetch2';
 import { toast } from 'react-toastify';
 
 export const action = async({request}) => {
@@ -13,7 +13,7 @@ export const action = async({request}) => {
     return null;
   }
   try{
-    await customFetch.patch('/users/update-user', formData)
+    await customFetch2.patch('/users/update-user', formData)
     toast.success('Profile updated successfully')
   } catch (error) {
        toast.error(error?.response?.data?.msg);
@@ -36,7 +36,7 @@ const ProfilePage = () => {
 
             </label>
             <input type="file" id='avatar' name='avatar'
-            className='form-input' accept='image/*'
+            className='form-input' accept='image/*'/>
 
           </div>
     {/* file input */}
