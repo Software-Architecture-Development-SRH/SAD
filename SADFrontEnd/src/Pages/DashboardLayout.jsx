@@ -5,8 +5,8 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import { createContext, useState, useContext } from "react";
 import { checkDefaultTheme } from "../App";
-import customFetch2 from "../Utils/customFetch2";
 import customFetch from "../Utils/customFetch";
+import customFetch2 from "../Utils/customFetch2";
 import { toast } from "react-toastify";
 
 //loaders to pass the data
