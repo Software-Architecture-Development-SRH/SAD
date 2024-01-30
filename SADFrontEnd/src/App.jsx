@@ -14,6 +14,12 @@ import {
   RegisterPage,
   StatsPage,
 } from "./Pages";
+import { action as registerAction } from "./Pages/RegisterPage";
+import { action as loginAction } from "./Pages/Login";
+import { action as addJobAction } from "./Pages/AddJob";
+
+import { loader as dashboardLoader } from "./Pages/DashboardLayout";
+import { loader as allJobsLoader } from "./Pages/AllJobs";
 
 export const checkDefaultTheme = () => {
   const isDarkTheme = localStorage.getItem("darkTheme") === "false";
@@ -21,7 +27,6 @@ export const checkDefaultTheme = () => {
   return isDarkTheme;
 };
 checkDefaultTheme();
-
 /* Setting of the web-url routes using createBrowserRouter from ES7 */
 const router = createBrowserRouter([
   {
@@ -32,10 +37,12 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <RegisterPage />,
+        action: registerAction,
       },
       {
         path: "login",
         element: <Login />,
+        action: loginAction,
       },
       {
         index: true,
@@ -45,10 +52,12 @@ const router = createBrowserRouter([
       {
         path: "Dashboard",
         element: <DashboardLayout />,
+        loader: dashboardLoader,
         children: [
           {
             index: true,
             element: <AddJob />,
+            action: addJobAction,
           },
           {
             path: "profile",
@@ -69,6 +78,7 @@ const router = createBrowserRouter([
           {
             path: "alljobs",
             element: <AllJobs />,
+            loader: allJobsLoader,
           },
           {
             path: "admin",

@@ -6,8 +6,20 @@ import Logo from "../components/Logo";
 const LandingPage = () => {
   return (
     <Wrapper>
-      <nav>
-        <Logo />
+      <nav className="nav">
+        <div className="nav-cont">
+          <div className="logo-cont">
+            <Logo />
+          </div>
+          <div className="box">
+            <Link to="/register" className="btn register-link">
+              Register
+            </Link>
+            <Link to="/Login" className="btn register-link">
+              Login
+            </Link>
+          </div>
+        </div>
       </nav>
       <div className="container page">
         <div className="info">

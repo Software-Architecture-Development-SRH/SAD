@@ -1,5 +1,5 @@
 /*export all the pages so that we will just use name in the app.jsx file to make it easier to write there !- Vedant Zalke */
-export { default as AddJob } from "./AddJob";
+export { default as AddJob } from "./AddJob"
 export { default as Admin } from "./Admin";
 export { default as AllJobs } from "./AllJobs";
 export { default as DashboardLayout } from "./DashboardLayout";

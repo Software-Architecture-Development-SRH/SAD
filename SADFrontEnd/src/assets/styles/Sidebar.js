@@ -7,6 +7,7 @@ const Wrapper = styled.aside`
     box-shadow: 1px 2px 0 0 rgba(0, 0, 0, 0.1);
     .sidebar-container {
       background: var(--background-secondary-color);
+      box-shadow: 2px 2px 1px #f0f0f0, inset -20px -20px 60px #ffffff40;
       min-height: 100vh;
       height: 100%;
       width: 250px;
