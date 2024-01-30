@@ -5,7 +5,7 @@ const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 1px 2px 0 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 20px 20px 60px --primary-500, inset -20px -20px 60px #ffffff40;
   background: var(--background-secondary-color);
   .nav-center {
     display: flex;
