@@ -48,6 +48,16 @@ app.post('/upload', upload.single('file'), (req, res) => {
   }).end(req.file.buffer);
 });
 
+// PDF file filter
+function pdfFileFilter(req, file, cb) {
+  const allowedFileTypes = ['application/pdf'];
+  if (allowedFileTypes.includes(file.mimetype)) {
+    cb(null, true);
+  } else {
+    cb(new Error('Invalid file type. Only PDF files are allowed.'));
+  }
+}
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
