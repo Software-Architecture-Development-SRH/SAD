@@ -2,21 +2,24 @@ import { FormRow } from '../components';
 import Wrapper from '../assets/styles/DashboardFormPage';
 import { useOutletContext } from 'react-router-dom';
 import { useNavigation, Form } from 'react-router-dom';
-import customFetch2 from '../Utils/customFetch2';
+import customFetch from '../Utils/customFetch';
 import { toast } from 'react-toastify';
+import customFetch2 from '../Utils/customFetch2';
 
 export const action = async({request}) => {
   const formData = await request.formData();
+  //console.log(formData.get('avatar').name);
   const file = formData.get('avatar')
   if(file && file.size > 500000){
     toast.error('Image size is too large')
     return null;
   }
   try{
-    await customFetch2.patch('/users/update-user', formData)
+    await customFetch2.patch('/users/update-user', formData);
     toast.success('Profile updated successfully')
   } catch (error) {
        toast.error(error?.response?.data?.msg);
+      
   }
   return null;
 }
@@ -30,7 +33,7 @@ const ProfilePage = () => {
     <Form method='post' className='form' encType='multipart/form-data'>
         <h4 className='form-title'>profile</h4>
         <div className='form-center'>
-          <div class name="form-row">
+          <div className="form-row">
             <label htmlFor='avatar' className='form-label'>
               Select an image file (max 0.5 MB )
 

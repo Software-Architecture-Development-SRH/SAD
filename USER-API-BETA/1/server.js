@@ -12,16 +12,12 @@ import cookieParser from "cookie-parser";
 //importing routers
 import authRouter from "./routes/authRoutes.js";
 
-// public
-import { dirname} from 'path';
-import { fileURLToPath} from 'url';
-import path from 'path';
+
 
 // middleware
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
 import { authenticateUser } from './middleware/authMiddleware.js';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 
 if (process.env.NODE_ENV === "development") {
@@ -29,7 +25,6 @@ if (process.env.NODE_ENV === "development") {
 }
 
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
-app.use(express.static(path.resolve(__dirname, './public')));
 
 app.use(express.json());
 
