@@ -5,8 +5,8 @@ const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
-  background: var(--primary-900);
+  box-shadow: 1px 2px 0 0 rgba(0, 0, 0, 0.2);
+  background: var(--background-secondary-color);
   .nav-center {
     display: flex;
     width: 90vw;
@@ -16,8 +16,8 @@ const Wrapper = styled.nav`
   .toggle-btn {
     background: transparent;
     border-color: transparent;
-    font-size: 1.75rem;
-    color: var(--primary-500);
+    font-size: 2.25rem;
+    color: var(--primary-800);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -28,7 +28,7 @@ const Wrapper = styled.nav`
   .logo {
     display: flex;
     align-items: center;
-    width: 100px;
+    width: 90px;
   }
   .btn-container {
     display: flex;
