@@ -8,3 +8,4 @@ export { default as FormRow } from "./FormRow";
 export { default as JobsContainer } from "./JobsContainer";
 export { default as StatItem } from "./StatItem";
 export { default as SubmitBtn } from "./SubmitBtn";
+export { default as SubmitBtn } from "./SubmitButton";
