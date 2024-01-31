@@ -7,19 +7,25 @@ import cors from "cors";
 const app = express();
 import morgan from "morgan";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 //importing routers
 import authRouter from "./routes/authRoutes.js";
 
+
+
 // middleware
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
+import { authenticateUser } from './middleware/authMiddleware.js';
+
+
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 
 app.use(cors({ credentials: true, origin: "http://localhost:5173" }));
-app.use(morgan("dev"));
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
