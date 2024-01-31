@@ -15,7 +15,7 @@ export const action = async ({ request }) => {
     console.log(data);
     await customFetch2.post("/jobs", data);
     toast.success("Job added successfully !");
-    return redirect("AllJobs");
+    return redirect("/dashboard/alljobs");
   } catch (error) {
     toast.error(error?.response?.data?.msg);
     return error;
@@ -67,7 +67,7 @@ const AddJob = () => {
             type="date"
             labelText="Add Date"
             name="jobDate"
-            defaultValue={format(new Date(), "yyyy-mm-dd")}
+            defaultValue={format(new Date(), "yyyy-MM-dd")}
           />
           <FormRow
             type="text"

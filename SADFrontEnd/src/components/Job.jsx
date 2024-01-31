@@ -41,7 +41,7 @@ const Job = ({
           <JobInfo icon={<FaLink />} text="Click Here" link={jobLink} />
         </div>
         <footer className="actions">
-          <Link className="btn edit-btn">EDIT</Link>
+          <Link to={`../edit/${_id}`} className="btn edit-btn">EDIT</Link>
           <Form>
             <button type="submit" className="btn delete-btn">
               DELETE
