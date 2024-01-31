@@ -1,14 +1,12 @@
 import { FormRow, FormRowSelect } from "../components";
 import Wrapper from "../assets/styles/DashboardFormPage";
 import { useOutletContext } from "react-router-dom";
-import {
-  JOB_STATUS,
-  JOB_TYPE,
-} from "/Users/yogeshparihar/Desktop/SAD/SADFrontEnd/src/Utils/constants.js";
+import { JOB_STATUS, JOB_TYPE } from "../Utils/constants";
 import { Form, useNavigation, redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import customFetch2 from "../Utils/customFetch2";
 import DOMPurify from "dompurify";
+import { format } from "date-fns";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -17,7 +15,7 @@ export const action = async ({ request }) => {
     console.log(data);
     await customFetch2.post("/jobs", data);
     toast.success("Job added successfully !");
-    return redirect("AllJobs");
+    return redirect("/dashboard/alljobs");
   } catch (error) {
     toast.error(error?.response?.data?.msg);
     return error;
@@ -69,13 +67,14 @@ const AddJob = () => {
             type="date"
             labelText="Add Date"
             name="jobDate"
-            defaultValue="YYYY-MM-DD"
+            defaultValue={format(new Date(), "yyyy-MM-dd")}
           />
           <FormRow
             type="text"
             labelText="Add your job link"
             name="jobLink"
             placeholder="Paste your link here"
+            defaultValue="No link added"
           />
           <FormRow
             type="textarea"

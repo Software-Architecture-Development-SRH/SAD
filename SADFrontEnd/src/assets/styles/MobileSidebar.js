@@ -54,13 +54,13 @@ const Wrapper = styled.aside`
     color: var(--text-secondary-color);
     padding: 1rem 2rem;
     text-transform: capitalize;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
   .nav-link:hover {
     color: var(--primary-600);
   }
   .icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-right: 0.9rem;
     display: grid;
     place-items: center;
