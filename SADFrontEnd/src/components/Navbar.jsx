@@ -29,7 +29,9 @@ const Navbar = () => {
         </button>
         <div>
           <Logo />
-          <h4 className="logo-text">Dashboard</h4>
+          <h1 className="logo-text">
+            <b>Dashboard</b>
+          </h1>
         </div>
         <div className="btn-container">
           <ThemeToggle />

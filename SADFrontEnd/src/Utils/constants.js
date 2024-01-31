@@ -1,7 +1,7 @@
 export const JOB_STATUS = {
-  PENDING: "Response pending",
+  PENDING: "Response-pending",
   INTERVIEW: "Interviewed",
-  INTERVIEWRESPONSE: "Interview response pending",
+  INTERVIEWRESPONSE: "Interview",
   DECLINED: "Declined",
 };
 
@@ -9,7 +9,7 @@ export const JOB_TYPE = {
   FULL_TIME: "Full-time",
   PART_TIME: "Part-time",
   INTERNSHIP: "Internship",
-  WORKINGSTUDENT: "Working Student",
+  WORKINGSTUDENT: "Working-Student",
 };
 
 export const JOB_SORT_BY = {

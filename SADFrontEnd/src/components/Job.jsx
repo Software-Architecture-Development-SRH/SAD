@@ -1,13 +1,56 @@
-import { FaLocationArrow, FaBriefcase, FaCalendarAlt } from "react-icons/fa";
+import {
+  FaLocationArrow,
+  FaBriefcase,
+  FaCalendarAlt,
+  FaLink,
+} from "react-icons/fa";
 import { Link, Form } from "react-router-dom";
 import Wrapper from "../assets/styles/Job";
 import JobInfo from "./JobInfo";
-import day from "dayjs";
-import advancedFormat from "dayjs/plugin/advancedFormat";
-day.extend(advancedFormat);
+import { format as formatDate } from "date-fns";
 
-const Job = ({}) => {
-  return <h3>Job</h3>;
+const Job = ({
+  _id,
+  position,
+  company,
+  jobLocation,
+  jobType,
+  jobDate,
+  jobStatus,
+  jobLink,
+}) => {
+  const formattedJobDate = formatDate(new Date(jobDate), "yyyy-MM-dd");
+
+  return (
+    <Wrapper>
+      <header>
+        <div className="main-icon">{company.charAt(0)}</div>
+        <div className="info">
+          <h2>{company}</h2>
+          <p>{position}</p>
+        </div>
+        <div className={`status ${jobStatus}`}>{jobStatus}</div>
+
+        {/* <div className="qrCode">QR</div> */}
+      </header>
+      <div className="content">
+        <div className="content-center">
+          <JobInfo icon={<FaLocationArrow />} text={jobLocation} />
+          <JobInfo icon={<FaCalendarAlt />} text={formattedJobDate} />
+          <JobInfo icon={<FaBriefcase />} text={jobType} />
+          <JobInfo icon={<FaLink />} text="Click Here" link={jobLink} />
+        </div>
+        <footer className="actions">
+          <Link className="btn edit-btn">EDIT</Link>
+          <Form>
+            <button type="submit" className="btn delete-btn">
+              DELETE
+            </button>
+          </Form>
+        </footer>
+      </div>
+    </Wrapper>
+  );
 };
 
 export default Job;
