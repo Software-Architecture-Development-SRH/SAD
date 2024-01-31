@@ -7,6 +7,11 @@ const NavLinks = ({ isSidebar }) => {
     <div className="nav-links">
       {links.map((link) => {
         const { text, path, icon } = link;
+        // user role is not admin then not to show Amin link 
+        const {role}=user;
+        if(path==='admin' && role !=='admin')return;
+
+
         return (
           <NavLink
             to={path}

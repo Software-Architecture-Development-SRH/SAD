@@ -4,7 +4,7 @@ const Wrapper = styled.section`
   border-radius: var(--border-radius);
   width: 100%;
   background: var(--background-secondary-color);
-  box-shadow: 3px 3px 9px #d16aff, inset -2px -2px 2px #ffffff40;
+  box-shadow: 3px 3px 9px #d16aff;
   padding: 3rem 2rem 4rem;
   .form-title {
     margin-bottom: 2rem;

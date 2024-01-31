@@ -42,7 +42,7 @@ const Job = ({
         </div>
         <footer className="actions">
           <Link to={`../edit/${_id}`} className="btn edit-btn">EDIT</Link>
-          <Form>
+          <Form method="post" action={`../delete/${_id}`}>
             <button type="submit" className="btn delete-btn">
               DELETE
             </button>

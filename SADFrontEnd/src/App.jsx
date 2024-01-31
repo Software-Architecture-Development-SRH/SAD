@@ -4,7 +4,6 @@ import {
   Admin,
   AllJobs,
   DashboardLayout,
-  DeleteJob,
   EditJob,
   Error,
   HomeLayout,
@@ -18,10 +17,14 @@ import { action as registerAction } from "./Pages/RegisterPage";
 import { action as loginAction } from "./Pages/Login";
 import { action as addJobAction } from "./Pages/AddJob";
 import { action as editJobAction } from "./Pages/EditJob";
+import { action as deleteJobAction } from "./Pages/DeleteJob";
+
 import {action as profileAction } from "./Pages/ProfilePage"
 import { loader as dashboardLoader } from "./Pages/DashboardLayout";
 import { loader as allJobsLoader } from "./Pages/AllJobs";
 import { loader as editJobLoader } from "./Pages/EditJob";
+import { loader as adminLoader } from "./Pages/Admin";
+
 
 
 export const checkDefaultTheme = () => {
@@ -78,8 +81,8 @@ const router = createBrowserRouter([
             loader: editJobLoader,
           },
           {
-            path: "delete",
-            element: <DeleteJob />,
+            path: "delete/:id",
+            action: deleteJobAction,
           },
           {
             path: "alljobs",
@@ -89,6 +92,7 @@ const router = createBrowserRouter([
           {
             path: "admin",
             element: <Admin />,
+            loader: adminLoader,
           },
         ],
       },
