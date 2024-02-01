@@ -1,8 +1,7 @@
-import { FormRow } from '../components';
+import { FormRow , SubmitBtn} from '../components';
 import Wrapper from '../assets/styles/DashboardFormPage';
 import { useOutletContext } from 'react-router-dom';
 import { useNavigation, Form } from 'react-router-dom';
-import customFetch from '../Utils/customFetch';
 import { toast } from 'react-toastify';
 import customFetch2 from '../Utils/customFetch2';
 
@@ -19,11 +18,9 @@ export const action = async({request}) => {
     toast.success('Profile updated successfully')
   } catch (error) {
        toast.error(error?.response?.data?.msg);
-      
   }
   return null;
 }
-
 const ProfilePage = () => {
   const { user } = useOutletContext();
   const { name, lastName, email, location } = user;
@@ -47,10 +44,7 @@ const ProfilePage = () => {
     <FormRow type='text' name='lastName' labelText='last name' defaultvalue={lastName} />
     <FormRow type='email' name='email' defaultvalue={email} />
     <FormRow type='text' name='location' defaultvalue={location} />
-    <button className='btn btn-block form-btn' type='submit' disabled={isSubmitting}>
-      {isSubmitting? 'submitting...':'submit'}
-
-    </button>
+    <SubmitBtn formBtn />
     </div>
     </Form>
   </Wrapper>;
