@@ -1,8 +1,8 @@
-import { FormRow, FormRowSelect } from "../components";
+import { FormRow, FormRowSelect, SubmitBtn } from "../components";
 import Wrapper from "../assets/styles/DashboardFormPage";
 import { useOutletContext } from "react-router-dom";
 import { JOB_STATUS, JOB_TYPE } from "../Utils/constants";
-import { Form, useNavigation, redirect } from "react-router-dom";
+import { Form,  redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 import customFetch2 from "../Utils/customFetch2";
 import DOMPurify from "dompurify";
@@ -83,13 +83,8 @@ const AddJob = () => {
             rows={9}
             defaultValue="Type here"
           />
-          <button
-            type="submit"
-            className="btn btn-block form-btn "
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "submitting..." : "submit"}
-          </button>
+          
+          <SubmitBtn formBtn/>
         </div>
       </Form>
     </Wrapper>
