@@ -36,7 +36,7 @@ export const action = async ({ request,params }) => {
 
 const EditJob = () => {
   const {job} =useLoaderData();
-  const isSubmitting = navigation.state === "submitting";
+  
   return <Wrapper>
         <Form method="post" className="form">
         <h4 className="form-title">Edit job :</h4>
@@ -80,13 +80,7 @@ const EditJob = () => {
             rows={9}
             defaultValue="Type here"
           />
-          <button
-            type="submit"
-            className="btn btn-block form-btn "
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "submitting..." : "submit"}
-          </button>
+          <SubmitBtn formBtn />
         </div>
       </Form>
   </Wrapper>;

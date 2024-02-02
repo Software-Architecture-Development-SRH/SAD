@@ -1,7 +1,7 @@
 import { FormRow , SubmitBtn} from '../components';
 import Wrapper from '../assets/styles/DashboardFormPage';
 import { useOutletContext } from 'react-router-dom';
-import { useNavigation, Form } from 'react-router-dom';
+import { Form } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import customFetch2 from '../Utils/customFetch2';
 
@@ -24,8 +24,7 @@ export const action = async({request}) => {
 const ProfilePage = () => {
   const { user } = useOutletContext();
   const { name, lastName, email, location } = user;
-  const navigation = useNavigation();
-  const isSubmitting = navigation.state === 'submitting';
+
   return <Wrapper>
     <Form method='post' className='form' encType='multipart/form-data'>
         <h4 className='form-title'>profile</h4>

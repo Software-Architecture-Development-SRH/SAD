@@ -7,6 +7,7 @@ export const authenticateUser = (req, res, next) => {
 
     try {
         const { userId, role } = verifyJWT(token);
+        
         req.user = {userId, role};
         next();
     } catch (error) {
