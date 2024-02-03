@@ -4,6 +4,7 @@ import { MdQueryStats } from "react-icons/md";
 import { FaWpforms } from "react-icons/fa";
 import { ImProfile } from "react-icons/im";
 import { MdAdminPanelSettings } from "react-icons/md";
+import { IoDocument } from "react-icons/io5";
 
 const links = [
   {
@@ -25,6 +26,11 @@ const links = [
     text: "profile",
     path: "profile",
     icon: <ImProfile />,
+  },
+  {
+    text: "documents",
+    path: "documents",
+    icon: <IoDocument />,
   },
   {
     text: "admin",

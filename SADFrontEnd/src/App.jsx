@@ -12,7 +12,9 @@ import {
   ProfilePage,
   RegisterPage,
   StatsPage,
+  Documents
 } from "./Pages";
+import { FileProvider } from "./components/UploadFileContext";
 import { action as registerAction } from "./Pages/RegisterPage";
 import { action as loginAction } from "./Pages/Login";
 import { action as addJobAction } from "./Pages/AddJob";
@@ -57,7 +59,11 @@ const router = createBrowserRouter([
       },
       {
         path: "Dashboard",
-        element: <DashboardLayout />,
+        element:  (
+          <FileProvider>
+            <DashboardLayout />
+          </FileProvider>
+        ),
         loader: dashboardLoader,
         children: [
           {
@@ -93,6 +99,10 @@ const router = createBrowserRouter([
             path: "admin",
             element: <Admin />,
             loader: adminLoader,
+          },
+          {
+            path: "documents",
+            element: <Documents />,
           },
         ],
       },
