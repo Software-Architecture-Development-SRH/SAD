@@ -1,9 +1,38 @@
 import Wrapper from "../assets/styles/LandingPage";
-import { Link } from "react-router-dom";
+import { Link ,  useNavigate,} from "react-router-dom";
 import MainImage from "../assets/images/MainImage.svg";
 import Logo from "../components/Logo";
+import { toast } from "react-toastify";
+import customFetch from "../Utils/customFetch";
+
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  try {
+    await customFetch.post("/auth/login", data);
+    toast.success("Login successful");
+    return redirect("/dashboard");
+  } catch (error) {
+    toast.error(error?.response?.data?.msg);
+    return error;
+  }
+};
 
 const LandingPage = () => {
+  const navigate = useNavigate()
+  const loginDemoUser = async() =>{
+    const data = {
+      email : 'testuser@gmail.com',
+      password:'secret1234',
+    }
+        try {
+          await customFetch.post("/auth/login", data);
+          toast.success("Test our application"); 
+          navigate('/dashboard')
+        } catch (error) {
+          toast.error(error?.response?.data?.msg);
+        }
+      }
   return (
     <Wrapper>
       <nav className="nav">
@@ -32,17 +61,13 @@ const LandingPage = () => {
             applications online. Stay on top of updates and take control of your
             career journey!
           </p>
-          <Link to="/RegisterPage" className="btn register-link">
-            Register
-          </Link>
-          <Link to="/Login" className="btn ">
-            Login
-          </Link>
+          <button type="button" className="btn btn-block" onClick={loginDemoUser}>
+          Explore without Login
+        </button>
         </div>
         <img src={MainImage} alt="job hunt" className="img main-img" />
       </div>
     </Wrapper>
   );
 };
-
 export default LandingPage;
