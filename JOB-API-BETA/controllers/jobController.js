@@ -33,7 +33,6 @@ export const getAllJobs = async (req, res) => {
   }
   const sortKey=sortOptions[sort] || sortOptions.newest;
 
-  console.log(queryObject);
 
  // setup pagination
 
