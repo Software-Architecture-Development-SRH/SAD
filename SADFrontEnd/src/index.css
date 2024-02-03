@@ -269,23 +269,23 @@ button:disabled {
 
 /* BUTTONS AND BADGES */
 .pending {
-  background: linear-gradient(45deg, #ffa381, #f8d961);
+  background: linear-gradient(45deg, #ffcab7, #ffe993);
   color: #534c4c;
   border: 0.1px solid #ff0000;
 }
 
 .Interviewed {
-  background: linear-gradient(45deg, #efff62, #6dff7a);
+  background: linear-gradient(45deg, #f7ffab, #a9f9b0);
   color: #534c4c;
   border: 0.1px solid #ff00e6;
 }
 .Declined {
-  background: linear-gradient(45deg, #ffa381, #f86161);
+  background: linear-gradient(45deg, #ffa381, #ff9393);
   color: #534c4c;
   border: 0.1px solid #00ebe3e2;
 }
 .Response-pending {
-  background: linear-gradient(45deg, #66fced, #bd96fd);
+  background: linear-gradient(45deg, #a4fff6, #cbabff);
   color: #534c4c;
   border: 0.1px solid #15f700;
 }
