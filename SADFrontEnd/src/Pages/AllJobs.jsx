@@ -8,10 +8,7 @@ import { createContext, useContext } from "react";
 const AllJobsContext = createContext();
 
 export const loader = async ({ request }) => {
-  console.log("Loader function called");
   const params = Object.fromEntries([...new URL(request.url).searchParams.entries()]);
-  console.log(params);
-
   try {
     const response = await customFetch2.get("/jobs", { params });
     const data = response.data || {}; // Adjust according to the actual structure of your API response
@@ -24,8 +21,6 @@ export const loader = async ({ request }) => {
 
 const AllJobs = () => {
   const { data, searchValues } = useLoaderData();
-  console.log({Alljobs: data})
-
   useEffect(() => {
     const fetchData = async () => {
       try {
