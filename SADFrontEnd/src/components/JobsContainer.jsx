@@ -1,13 +1,14 @@
-// JobsContainer.jsx
+
+import { useAllJobsContext } from "../Pages/AllJobs.jsx";
 import React from "react";
 import Job from "./Job";
 import Wrapper from "../assets/styles/JobsContainer";
-import { useAllJobsContext } from "../Pages/AllJobs";
-
+import PageBtnContainer from "./PageBtnContainer";
 const JobsContainer = () => {
+  // context coming from allJobs
   const { data } = useAllJobsContext();
-  const { jobs } = data;
-  console.log({error: data})
+  //destructure data object to get required keys
+  const { jobs,totalJobs, numOfPages } = data;
 
   // when there are no jobs to show
   if (!jobs || jobs.length === 0) {
@@ -21,11 +22,15 @@ const JobsContainer = () => {
 
   return (
     <Wrapper>
+      {/* to show jobs found */}
+      <h5>{totalJobs} Job{jobs.length>1 && 's'} found :</h5>
+      {/* destucturing jobs object from backend */}
       <div className="jobs">
         {jobs.map((job) => (
           <Job key={job._id} {...job} />
         ))}
       </div>
+      {numOfPages>1 && <PageBtnContainer/>}
     </Wrapper>
   );
 };
