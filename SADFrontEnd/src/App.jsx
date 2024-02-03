@@ -16,6 +16,7 @@ import {
 } from "./Pages";
 import { FileProvider } from "./components/UploadFileContext";
 import { action as registerAction } from "./Pages/RegisterPage";
+import { action as landingPageAction } from "./Pages/LandingPage";
 import { action as loginAction } from "./Pages/Login";
 import { action as addJobAction } from "./Pages/AddJob";
 import { action as editJobAction } from "./Pages/EditJob";
@@ -39,6 +40,7 @@ checkDefaultTheme();
 const router = createBrowserRouter([
   {
     path: "/",
+    action: landingPageAction,
     element: <HomeLayout />,
     errorElement: <Error />,
     children: [
