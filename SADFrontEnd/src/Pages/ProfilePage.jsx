@@ -39,10 +39,10 @@ const ProfilePage = () => {
 
           </div>
     {/* file input */}
-    <FormRow type='text' name='name' defaultvalue={name} />
-    <FormRow type='text' name='lastName' labelText='last name' defaultvalue={lastName} />
-    <FormRow type='email' name='email' defaultvalue={email} />
-    <FormRow type='text' name='location' defaultvalue={location} />
+    <FormRow type='text' name='name' defaultValue={name} />
+    <FormRow type='text' name='lastName' labelText='last name' defaultValue={lastName} />
+    <FormRow type='email' name='email' defaultValue={email} />
+    <FormRow type='text' name='location' defaultValue={location} />
     <SubmitBtn formBtn />
     </div>
     </Form>
