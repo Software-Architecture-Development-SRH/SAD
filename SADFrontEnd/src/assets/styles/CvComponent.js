@@ -6,7 +6,7 @@ const Wrapper = styled.section`
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f8f8f8;
-  color: #333;
+  color: #222;
   margin: 0;
   padding: 0;
 }
