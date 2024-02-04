@@ -24,13 +24,27 @@ const CvComponent = () => {
   }, [user.email]);
 
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
+    handleFiles(event.target.files);
+  };
+
+  const handleFiles = (files) => {
+    const file = files[0];
     // Check if the file is an image
     if (file && file.type.startsWith('image/')) {
       setCvFile(file);
     } else {
       toast.error('Please upload a valid image file.');
     }
+  };
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    handleFiles(files);
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
   };
 
   const handleUpload = async () => {
@@ -46,9 +60,22 @@ const CvComponent = () => {
         return;
       }
 
+      // Additional safety measures
+      const maxSizeInBytes = 10 * 1024 * 1024; // 10MB
+      if (cvFile.size > maxSizeInBytes) {
+        toast.error('File size exceeds the maximum limit (10MB).');
+        return;
+      }
+
       const formData = new FormData();
       formData.append('email', user.email);
       formData.append('file', cvFile);
+
+      // Ensure only images are uploaded
+      if (!cvFile.type.startsWith('image/')) {
+        toast.error('Please upload a valid image file.');
+        return;
+      }
 
       await customFetch3.post('/pushCV', formData);
 
@@ -66,8 +93,16 @@ const CvComponent = () => {
   return (
     <div>
       <h2>CVs</h2>
-      <p>Upload image CVs only.</p>
-      <input type="file" id="cvInput" accept="image/*" onChange={handleFileChange} />
+      <p>Upload image CVs only. You can also drag and drop files here.</p>
+      <div
+        id="dropArea"
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        style={{ border: '2px dashed #ccc', padding: '20px', cursor: 'pointer' }}
+      >
+        <input type="file" id="cvInput" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+        <label htmlFor="cvInput">Click to select or drag and drop files here.</label>
+      </div>
       <button onClick={handleUpload}>Upload CV</button>
       <table>
         <thead>
@@ -82,7 +117,7 @@ const CvComponent = () => {
               <td>{resource.original_filename || resource.public_id || resource.original_filename || 'No Name'}</td>
               <td>
                 <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                  <button >👁️</button>
+                  <button>👁️</button>
                 </a>
               </td>
             </tr>
