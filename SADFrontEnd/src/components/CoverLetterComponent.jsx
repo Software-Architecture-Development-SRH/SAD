@@ -3,6 +3,8 @@ import { useDashboardContext } from '../Pages/DashboardLayout';
 import customFetch3 from '../Utils/customFetch3';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Wrapper from '../assets/styles/CvComponent';
+
 
 const CoverLetterComponent = () => {
   const { user } = useDashboardContext();
@@ -24,13 +26,27 @@ const CoverLetterComponent = () => {
   }, [user.email]);
 
   const handleFileChange = (event) => {
-    const file = event.target.files[0];
+    handleFiles(event.target.files);
+  };
+
+  const handleFiles = (files) => {
+    const file = files[0];
     // Check if the file is an image
     if (file && file.type.startsWith('image/')) {
       setCoverLetterFile(file);
     } else {
       toast.error('Please upload a valid image file.');
     }
+  };
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const files = event.dataTransfer.files;
+    handleFiles(files);
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
   };
 
   const handleUpload = async () => {
@@ -46,9 +62,22 @@ const CoverLetterComponent = () => {
         return;
       }
 
+      // Additional safety measures
+      const maxSizeInBytes = 10 * 1024 * 1024; // 10MB
+      if (coverLetterFile.size > maxSizeInBytes) {
+        toast.error('File size exceeds the maximum limit (10MB).');
+        return;
+      }
+
       const formData = new FormData();
       formData.append('email', user.email);
       formData.append('file', coverLetterFile);
+
+      // Ensure only images are uploaded
+      if (!coverLetterFile.type.startsWith('image/')) {
+        toast.error('Please upload a valid image file.');
+        return;
+      }
 
       await customFetch3.post('/pushCOVERLETTER', formData);
 
@@ -64,10 +93,25 @@ const CoverLetterComponent = () => {
   };
 
   return (
+    <Wrapper>
     <div>
       <h2>Cover Letters</h2>
-      <p>Upload image cover letters only.</p>
-      <input type="file" id="coverLetterInput" accept="image/*" onChange={handleFileChange} />
+      <p>Upload image cover letters only. You can also drag and drop files here.</p>
+      <div
+        id="dropArea"
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        style={{ border: '2px dashed #ccc', padding: '20px', cursor: 'pointer' }}
+      >
+        <input
+          type="file"
+          id="coverLetterInput"
+          accept="image/*"
+          onChange={handleFileChange}
+          style={{ display: 'none' }}
+        />
+        <label htmlFor="coverLetterInput">Click to select or drag and drop files here.</label>
+      </div>
       <button onClick={handleUpload}>Upload Cover Letter</button>
       <table>
         <thead>
@@ -90,6 +134,7 @@ const CoverLetterComponent = () => {
         </tbody>
       </table>
     </div>
+    </Wrapper>
   );
 };
 
