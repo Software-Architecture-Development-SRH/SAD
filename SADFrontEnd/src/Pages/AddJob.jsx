@@ -41,31 +41,32 @@ const AddJob = () => {
   return (
     <Wrapper>
       <Form method="post" className="form">
-        <h4 className="form-title">Add your job here :</h4>
+        <h4 className="form-title">Add your applied job details here :</h4>
         <div className="form-center">
-          <FormRow type="text" name="position" />
-          <FormRow type="text" name="company" />
+          <FormRow type="text" name="position*"  required/>
+          <FormRow type="text" name="company*"  required/>
           <FormRow
             type="text"
-            labelText="job location"
+            labelText="job location*"
             name="jobLocation"
             defaultValue={user.location}
+            required
           />
           <FormRowSelect
-            labelText="job status"
+            labelText="job status*"
             name="jobStatus"
             defaultValue={JOB_STATUS.PENDING}
             list={Object.values(JOB_STATUS)}
           />
           <FormRowSelect
-            labelText="job type"
+            labelText="job type*"
             name="jobType"
             defaultValue={JOB_TYPE.FULL_TIME}
             list={Object.values(JOB_TYPE)}
           />
           <FormRow
             type="date"
-            labelText="Add Date"
+            labelText="Add Date*"
             name="jobDate"
             defaultValue={format(new Date(), "yyyy-MM-dd")}
           />

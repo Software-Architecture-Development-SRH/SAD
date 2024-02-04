@@ -3,83 +3,34 @@ import styled from "styled-components";
 const Wrapper = styled.section`
   background: var(--background-secondary-color);
   border-radius: var(--border-radius);
-  display: grid;
+  display: grid; 
   grid-template-rows: 1fr auto;
   box-shadow: var(--shadow-2);
   padding: 3rem 2rem 4rem;
-
-  .buttonContainer {
-    margin-top: 3rem;
+  .buttons {
     display: flex;
-    flex-direction: row; /* Default: row layout */
-
-    @media (max-width: 768px) {
-      /* Switch to column layout for screens with max width 768px (tablet and below) */
-      flex-direction: column;
-    }
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; /* Adjust the gap between buttons as needed */
+    margin:1rem;
   }
+  
+/* Tab button */
+button {
+  padding: 0.5rem 0.5rem;
+  font-size: 16px;
+  border-radius:10%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 1rem 1rem;
+}
 
-  .btn {
-    margin-right: 1rem;
+/* Active tab button */
+button.active {
+  background-color: var(--primary-800);
+  color: white;
+}
 
-    @media (max-width: 768px) {
-      /* Adjust styling for mobile view */
-      margin-right: 0; /* No right margin in mobile view */
-      margin-bottom: 1rem; /* Add bottom margin for spacing in mobile view */
-    }
-  }
-
-  .certificate-btn {
-    margin-right: 1rem;
-
-    @media (max-width: 768px) {
-      margin-right: 0;
-    }
-  }
-
-  .cv-btn {
-    margin-right: 1rem;
-    margin-left: 2rem;
-
-    @media (max-width: 768px) {
-      margin-right: 0;
-      margin-left: 0; /* Adjust left margin for mobile view */
-    }
-  }
-  .dropzone {
-    margin: 2rem;
-    position: relative;
-
-    &.active {
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      padding: 2rem;
-    }
-
-    button.close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  }
-  @media (min-width: 992px) {
-    .form-center {
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      column-gap: 1rem;
-    }
-  }
-  @media (min-width: 1120px) {
-    .form-center {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
 `;
 
 export default Wrapper;

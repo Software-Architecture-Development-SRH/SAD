@@ -3,12 +3,13 @@ import { useDashboardContext } from '../Pages/DashboardLayout';
 import customFetch3 from '../Utils/customFetch3';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Wrapper from '../assets/styles/CvComponent';
+import Wrapper from '../assets/styles/DocumentStyleComponent';
 
 const CvComponent = () => {
   const { user } = useDashboardContext();
   const [cvFile, setCvFile] = useState(null);
   const [cvResources, setCvResources] = useState([]);
+  const [droppedFileName, setDroppedFileName] = useState(null);
 
   useEffect(() => {
     const fetchCvResources = async () => {
@@ -42,6 +43,11 @@ const CvComponent = () => {
     event.preventDefault();
     const files = event.dataTransfer.files;
     handleFiles(files);
+
+    // Set the name of the dropped file
+    if (files.length > 0) {
+      setDroppedFileName(files[0].name);
+    }
   };
 
   const handleDragOver = (event) => {
@@ -85,6 +91,10 @@ const CvComponent = () => {
       setCvResources(response.data.resources || []);
 
       toast.success('CV uploaded successfully!');
+      // Clear the dropped file name
+      setDroppedFileName(null);
+      // Clear the selected file
+      setCvFile(null);
     } catch (error) {
       console.error('Error uploading CV:', error);
       toast.error(error?.response?.data?.error || 'Error uploading CV');
@@ -93,40 +103,50 @@ const CvComponent = () => {
 
   return (
     <Wrapper>
-    <div>
-      <h2>CVs</h2>
-      <p>Upload image CVs only. You can also drag and drop files here.</p>
-      <div
-        id="dropArea"
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        style={{ border: '2px dashed #ccc', padding: '20px', cursor: 'pointer' }}
-      >
-        <input type="file" id="cvInput" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
-        <label htmlFor="cvInput">Click to select or drag and drop files here.</label>
-      </div>
-      <button onClick={handleUpload}>Upload CV</button>
-      <table>
-        <thead>
-          <tr>
-            <th>CV Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cvResources.map((resource, index) => (
-            <tr key={index}>
-              <td>{resource.original_filename || resource.public_id || resource.original_filename || 'No Name'}</td>
-              <td>
-                <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                  <button>👁️</button>
-                </a>
-              </td>
+      <div className='container-window'>
+        <p className='text-here'>Upload image CVs only. You can also drag and drop files here.</p>
+
+        <div
+          id="dropArea"
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+        >
+          <input type="file" id="cvInput" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+          <label htmlFor="cvInput">Click to select or drag and drop files here.</label>
+
+          {droppedFileName && (
+            <p>Dropped Image: {droppedFileName}</p>
+          )}
+
+          {/* Message for uploaded CV */}
+          {cvFile && (
+            <p>Photo is here!</p>
+          )}
+        </div>
+
+        <button className="upload" onClick={handleUpload}>Upload CV</button>
+
+        <table>
+          <thead>
+            <tr>
+              <th>CV Name</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {cvResources.map((resource, index) => (
+              <tr key={index}>
+                <td>{resource.original_filename || resource.public_id || resource.original_filename || 'No Name'}</td>
+                <td>
+                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                    <button>👁️</button>
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </Wrapper>
   );
 };

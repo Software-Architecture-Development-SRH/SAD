@@ -3,13 +3,13 @@ import { useDashboardContext } from '../Pages/DashboardLayout';
 import customFetch3 from '../Utils/customFetch3';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Wrapper from '../assets/styles/CvComponent';
-
+import Wrapper from '../assets/styles/DocumentStyleComponent';
 
 const CoverLetterComponent = () => {
   const { user } = useDashboardContext();
   const [coverLetterFile, setCoverLetterFile] = useState(null);
   const [coverLetterResources, setCoverLetterResources] = useState([]);
+  const [droppedFileName, setDroppedFileName] = useState(null);
 
   useEffect(() => {
     const fetchCoverLetterResources = async () => {
@@ -43,6 +43,11 @@ const CoverLetterComponent = () => {
     event.preventDefault();
     const files = event.dataTransfer.files;
     handleFiles(files);
+
+    // Set the name of the dropped file
+    if (files.length > 0) {
+      setDroppedFileName(files[0].name);
+    }
   };
 
   const handleDragOver = (event) => {
@@ -86,6 +91,10 @@ const CoverLetterComponent = () => {
       setCoverLetterResources(response.data.resources || []);
 
       toast.success('Cover Letter uploaded successfully!');
+      // Clear the dropped file name
+      setDroppedFileName(null);
+      // Clear the selected file
+      setCoverLetterFile(null);
     } catch (error) {
       console.error('Error uploading Cover Letter:', error);
       toast.error(error?.response?.data?.error || 'Error uploading Cover Letter');
@@ -94,46 +103,50 @@ const CoverLetterComponent = () => {
 
   return (
     <Wrapper>
-    <div>
-      <h2>Cover Letters</h2>
-      <p>Upload image cover letters only. You can also drag and drop files here.</p>
-      <div
-        id="dropArea"
-        onDrop={handleDrop}
-        onDragOver={handleDragOver}
-        style={{ border: '2px dashed #ccc', padding: '20px', cursor: 'pointer' }}
-      >
-        <input
-          type="file"
-          id="coverLetterInput"
-          accept="image/*"
-          onChange={handleFileChange}
-          style={{ display: 'none' }}
-        />
-        <label htmlFor="coverLetterInput">Click to select or drag and drop files here.</label>
-      </div>
-      <button onClick={handleUpload}>Upload Cover Letter</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Cover Letter Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {coverLetterResources.map((resource, index) => (
-            <tr key={index}>
-              <td>{resource.original_filename || resource.public_id || resource.original_filename || 'No Name'}</td>
-              <td>
-                <a href={resource.url} target="_blank" rel="noopener noreferrer">
-                  <button>👁️</button>
-                </a>
-              </td>
+      <div className='container-window'>
+        <p className='text-here'>Upload image cover letters only. You can also drag and drop files here.</p>
+
+        <div
+          id="dropArea"
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+        >
+          <input type="file" id="coverLetterInput" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+          <label htmlFor="coverLetterInput">Click to select or drag and drop files here.</label>
+
+          {droppedFileName && (
+            <p>Dropped Image: {droppedFileName}</p>
+          )}
+
+          {/* Message for uploaded Cover Letter */}
+          {coverLetterFile && (
+            <p>Cover Letter is here!</p>
+          )}
+        </div>
+
+        <button className="upload" onClick={handleUpload}>Upload Cover Letter</button>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Cover Letter Name</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {coverLetterResources.map((resource, index) => (
+              <tr key={index}>
+                <td>{resource.original_filename || resource.public_id || resource.original_filename || 'No Name'}</td>
+                <td>
+                  <a href={resource.url} target="_blank" rel="noopener noreferrer">
+                    <button>👁️</button>
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </Wrapper>
   );
 };
