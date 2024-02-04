@@ -3,6 +3,8 @@ import { useDashboardContext } from '../Pages/DashboardLayout';
 import customFetch3 from '../Utils/customFetch3';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Wrapper from '../assets/styles/CertificateComponent';
+
 
 const CertificatesComponent = () => {
   const { user } = useDashboardContext();
@@ -91,6 +93,7 @@ const CertificatesComponent = () => {
   };
 
   return (
+    <Wrapper>
     <div>
       <h2>Certificates</h2>
       <p>Upload image certificates only. You can also drag and drop files here.</p>
@@ -131,6 +134,7 @@ const CertificatesComponent = () => {
         </tbody>
       </table>
     </div>
+    </Wrapper>
   );
 };
 

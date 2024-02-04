@@ -3,6 +3,7 @@ import { useDashboardContext } from '../Pages/DashboardLayout';
 import customFetch3 from '../Utils/customFetch3';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Wrapper from '../assets/styles/CvComponent';
 
 const CvComponent = () => {
   const { user } = useDashboardContext();
@@ -91,6 +92,7 @@ const CvComponent = () => {
   };
 
   return (
+    <Wrapper>
     <div>
       <h2>CVs</h2>
       <p>Upload image CVs only. You can also drag and drop files here.</p>
@@ -125,6 +127,7 @@ const CvComponent = () => {
         </tbody>
       </table>
     </div>
+    </Wrapper>
   );
 };
 

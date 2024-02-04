@@ -3,6 +3,8 @@ import { useDashboardContext } from '../Pages/DashboardLayout';
 import customFetch3 from '../Utils/customFetch3';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Wrapper from '../assets/styles/CvComponent';
+
 
 const CoverLetterComponent = () => {
   const { user } = useDashboardContext();
@@ -91,6 +93,7 @@ const CoverLetterComponent = () => {
   };
 
   return (
+    <Wrapper>
     <div>
       <h2>Cover Letters</h2>
       <p>Upload image cover letters only. You can also drag and drop files here.</p>
@@ -131,6 +134,7 @@ const CoverLetterComponent = () => {
         </tbody>
       </table>
     </div>
+    </Wrapper>
   );
 };
 
