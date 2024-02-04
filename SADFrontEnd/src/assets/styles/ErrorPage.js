@@ -4,6 +4,7 @@ const Wrapper = styled.main`
   min-height: 100vh;
   text-align: center;
   display: flex;
+  flex-direction: coloumn;
   align-items: center;
   justify-content: center;
   img {

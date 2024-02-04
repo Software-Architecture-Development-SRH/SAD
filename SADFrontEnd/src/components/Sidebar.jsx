@@ -16,6 +16,7 @@ const Sidebar = () => {
             <Logo />
           </header>
           <NavLinks isSidebar />
+          
         </div>
       </div>
     </Wrapper>

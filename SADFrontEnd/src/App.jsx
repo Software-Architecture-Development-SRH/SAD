@@ -12,8 +12,10 @@ import {
   ProfilePage,
   RegisterPage,
   StatsPage,
+  Documents
 } from "./Pages";
 import { action as registerAction } from "./Pages/RegisterPage";
+import { action as landingPageAction } from "./Pages/LandingPage";
 import { action as loginAction } from "./Pages/Login";
 import { action as addJobAction } from "./Pages/AddJob";
 import { action as editJobAction } from "./Pages/EditJob";
@@ -38,6 +40,7 @@ checkDefaultTheme();
 const router = createBrowserRouter([
   {
     path: "/",
+    action: landingPageAction,
     element: <HomeLayout />,
     errorElement: <Error />,
     children: [
@@ -58,7 +61,9 @@ const router = createBrowserRouter([
       },
       {
         path: "Dashboard",
-        element: <DashboardLayout />,
+        element:  (
+            <DashboardLayout />
+        ),
         loader: dashboardLoader,
         children: [
           {
@@ -95,6 +100,10 @@ const router = createBrowserRouter([
             path: "admin",
             element: <Admin />,
             loader: adminLoader,
+          },
+          {
+            path: "documents",
+            element: <Documents />,
           },
         ],
       },

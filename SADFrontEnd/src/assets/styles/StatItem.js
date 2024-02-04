@@ -25,15 +25,16 @@ header {
     font-size:1.25rem;
 }
 .icon {
-    width:70px;
-    height:60px;
+    width:80px;
+    height:70px;
     background: ${(props) => props.bcg};
     border-radius:var(--border-radius);
     display:flex;
     align-item:center;
     justify-content:center;
     svg {
-        font-size:2rem;
+        font-size:3rem;
+        margin-top:0.5rem;
         ${(props) => props.color};
     }
 }

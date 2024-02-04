@@ -31,9 +31,16 @@ const Admin = () => {
     title='total jobs' 
     count={jobs}
     color='#647acb' 
-    bcg='#e0e8f9' 
+    bcg='#e0e8f9'   
     icon={<FaCalendarCheck />}
     />
+        {/* <StatItem 
+    title='total Documents' 
+    count={documents}
+    color='#647acb' 
+    bcg='#e0e8f9' 
+    icon={<FaCalendarCheck />}
+    /> */}
   </Wrapper>;
 };
 export default Admin;

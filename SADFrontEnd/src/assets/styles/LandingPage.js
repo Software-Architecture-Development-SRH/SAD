@@ -8,18 +8,15 @@ const Wrapper = styled.section`
     height: var(--nav-height);
     display: flex;
     align-items: center;
-
-    background-color: #b148d2;
   }
   .nav-cont {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5f5f5;
   }
   .logo-cont {
     flex-grow: 1;
-    margin: 0;
+    margin: 1rem;
   }
   .logo {
     width: 150px;
