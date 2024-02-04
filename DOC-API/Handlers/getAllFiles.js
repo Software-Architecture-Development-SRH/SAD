@@ -9,7 +9,7 @@ export const getCV = (req, res) => {
     return res.status(400).json({ error: 'Email is required.' });
   }
 
-  if(req.user.role !== 'admin') return res.status(400).json({ error: 'Access Denied.' });
+  if(email !== req.user.email) return res.status(400).json({ error: 'Access Denied.' });
 
 
   const folderName = `CV/${email}`;
