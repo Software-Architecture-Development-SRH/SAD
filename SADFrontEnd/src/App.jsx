@@ -24,6 +24,7 @@ import { loader as dashboardLoader } from "./Pages/DashboardLayout";
 import { loader as allJobsLoader } from "./Pages/AllJobs";
 import { loader as editJobLoader } from "./Pages/EditJob";
 import { loader as adminLoader } from "./Pages/Admin";
+import { loader as statsLoader } from "./Pages/StatsPage";
 
 
 
@@ -73,6 +74,7 @@ const router = createBrowserRouter([
           {
             path: "Stats",
             element: <StatsPage />,
+            loader: statsLoader,
           },
           {
             path: "edit/:singleJobId",
