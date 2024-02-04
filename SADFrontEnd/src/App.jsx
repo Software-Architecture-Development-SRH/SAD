@@ -14,7 +14,6 @@ import {
   StatsPage,
   Documents
 } from "./Pages";
-import { FileProvider } from "./components/UploadFileContext";
 import { action as registerAction } from "./Pages/RegisterPage";
 import { action as landingPageAction } from "./Pages/LandingPage";
 import { action as loginAction } from "./Pages/Login";
@@ -62,9 +61,7 @@ const router = createBrowserRouter([
       {
         path: "Dashboard",
         element:  (
-          <FileProvider>
             <DashboardLayout />
-          </FileProvider>
         ),
         loader: dashboardLoader,
         children: [

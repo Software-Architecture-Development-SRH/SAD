@@ -10,7 +10,11 @@ export { default as JobsContainer } from "./JobsContainer";
 export { default as SearchContainer } from "./SearchContainer";
 export { default as SubmitBtn } from "./SubmitButton";
 export { default as StatItem } from "./StatItem";
-export { default as FileTable } from "./ViewDocument";
-export { default as FileContext } from "./UploadFileContext";
+export { default as CertificatesComponent } from "./CertificatesComponent";
+export { default as CvComponent } from "./CvComponent";
+export { default as CoverLetterComponent } from "./CoverLetterComponent";
+
+
+
 
 
