@@ -5,7 +5,9 @@ import { useLoaderData } from "react-router-dom";
 export const loader = async () => {
 try {
   const response = await customFetch2.get('/jobs/stats')
+  
   return response.data;
+  
 } catch (error) {
   return error;
   
@@ -14,7 +16,7 @@ try {
 
 const StatsPage = () => {
   const {defaultStats, monthlyApplications} = useLoaderData();
-
+console.log(defaultStats);
   return ( 
   <>
   <StatsContainer defaultStats={defaultStats}/>
