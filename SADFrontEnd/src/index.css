@@ -57,7 +57,7 @@ html {
   --nav-height: 5.22rem;
   /* box shadow*/
   --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-2: 3px 3px 9px #d16aff;
+  --shadow-2: 4px 4px 9px #b598c4;
 
   --shadow-3: 0 -10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -271,26 +271,26 @@ button:disabled {
 .pending {
   background: linear-gradient(45deg, #ffcab7, #ffe993);
   color: #534c4c;
-  border: 0.1px solid #ff0000;
+  border: 0.1px solid var(--text-color);
 }
 
 .Interviewed {
   background: linear-gradient(45deg, #f7ffab, #a9f9b0);
   color: #534c4c;
-  border: 0.1px solid #ff00e6;
+  border: 0.1px solid var(--text-color);
 }
 .Declined {
   background: linear-gradient(45deg, #ffa381, #ff9393);
   color: #534c4c;
-  border: 0.1px solid #00ebe3e2;
+  border: 0.1px solid #000000e2;
 }
 .Response-pending {
   background: linear-gradient(45deg, #a4fff6, #cbabff);
   color: #534c4c;
-  border: 0.1px solid #15f700;
+  border: 0.1px solid var(--text-color);
 }
 .Interview {
   background: linear-gradient(45deg, #daeeb7, #f3bcbc);
   color: #534c4c;
-  border: 0.9px solid #000000;
+  border: 0.9px solid var(--text-color);
 }
