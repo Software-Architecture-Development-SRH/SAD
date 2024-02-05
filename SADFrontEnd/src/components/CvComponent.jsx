@@ -130,7 +130,7 @@ const CvComponent = () => {
           <thead>
             <tr>
               <th>CV Name</th>
-              <th>Actions</th>
+              <th>Actions- View CV.</th>
             </tr>
           </thead>
           <tbody>

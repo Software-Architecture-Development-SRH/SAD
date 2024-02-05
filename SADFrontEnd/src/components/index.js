@@ -17,6 +17,8 @@ export { default as StatsContainer } from "./StatsContainer";
 export { default as CertificatesComponent } from "./CertificatesComponent";
 export { default as CvComponent } from "./CvComponent";
 export { default as CoverLetterComponent } from "./CoverLetterComponent";
+export { default as FlipCard } from "./FlipCard";
+
 
 
 

@@ -14,7 +14,7 @@ const Documents = () => {
   return (
     <Wrapper>
       <div>
-        <h1>Upload you documents for easy access:</h1>
+        <h1>Upload your documents for easy access:</h1>
         <div className='buttons'>
           <button onClick={() => handleTabClick('cv')} className={activeTab === 'cv' ? 'active' : ''}>
             <span>CV</span>

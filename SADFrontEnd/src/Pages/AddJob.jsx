@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import customFetch2 from "../Utils/customFetch2";
 import DOMPurify from "dompurify";
 import { format } from "date-fns";
+import { FlipCard } from "../components";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -39,6 +40,7 @@ const AddJob = () => {
     // Rest of your form submission logic...
   };
   return (
+    <>
     <Wrapper>
       <Form method="post" className="form">
         <h4 className="form-title">Add your applied job details here :</h4>
@@ -84,11 +86,14 @@ const AddJob = () => {
             rows={9}
             defaultValue="Type here"
           />
-          
           <SubmitBtn formBtn/>
         </div>
       </Form>
     </Wrapper>
+    <div className="flipcard">
+      <FlipCard/>
+    </div>
+    </>
   );
 };
 

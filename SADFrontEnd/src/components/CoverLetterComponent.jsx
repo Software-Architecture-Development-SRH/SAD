@@ -130,7 +130,7 @@ const CoverLetterComponent = () => {
           <thead>
             <tr>
               <th>Cover Letter Name</th>
-              <th>Actions</th>
+              <th>Actions- View cover letters.</th>
             </tr>
           </thead>
           <tbody>

@@ -110,7 +110,7 @@ const CertificatesComponent = () => {
         <thead>
           <tr>
             <th>Certificate Name</th>
-            <th>Actions</th>
+            <th>Actions - View certificate.</th>
           </tr>
         </thead>
         <tbody>

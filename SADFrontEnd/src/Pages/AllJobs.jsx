@@ -11,11 +11,11 @@ export const loader = async ({ request }) => {
   const params = Object.fromEntries([...new URL(request.url).searchParams.entries()]);
   try {
     const response = await customFetch2.get("/jobs", { params });
-    const data = response.data || {}; // Adjust according to the actual structure of your API response
+    const data = response.data || {}; 
     return { data, searchValues: { ...params } };
   } catch (error) {
     toast.error(error?.response?.data?.msg);
-    return { data: {}, searchValues: { ...params } }; // Handle error gracefully
+    return { data: {}, searchValues: { ...params } }; 
   }
 };
 
@@ -33,9 +33,6 @@ const AllJobs = () => {
 
     fetchData();
   }, [searchValues]);
-
-  console.log("Search Values:", searchValues);
-  console.log("Data from loader:", data);
 
   return (
     <>
