@@ -3,7 +3,7 @@ import { useDashboardContext } from '../Pages/DashboardLayout';
 import customFetch3 from '../Utils/customFetch3';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Wrapper from '../assets/styles/CertificateComponent';
+import Wrapper from '../assets/styles/DocumentStyleComponent';
 
 
 const CertificatesComponent = () => {
@@ -94,30 +94,23 @@ const CertificatesComponent = () => {
 
   return (
     <Wrapper>
-    <div>
-      <h2>Certificates</h2>
-      <p>Upload image certificates only. You can also drag and drop files here.</p>
+    <div className='container-window'>
+      <p className='text-here'>Upload image format certificates only. You can also drag and drop files here.</p>
+      
       <div
         id="dropArea"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
-        style={{ border: '2px dashed #ccc', padding: '20px', cursor: 'pointer' }}
       >
-        <input
-          type="file"
-          id="certificatesInput"
-          accept="image/*"
-          onChange={handleFileChange}
-          style={{ display: 'none' }}
-        />
-        <label htmlFor="certificatesInput">Click to select or drag and drop files here.</label>
+        <input type="file" id="certificateInput" accept="image/*" onChange={handleFileChange} style={{ display: 'none' }} />
+        <label htmlFor="certificateInput">Click to select or drag and drop files here.</label>
       </div>
-      <button onClick={handleUpload}>Upload Certificates</button>
+      <button className="upload" onClick={handleUpload}>Upload your certificates</button>
       <table>
         <thead>
           <tr>
             <th>Certificate Name</th>
-            <th>Actions</th>
+            <th>Actions - View certificate.</th>
           </tr>
         </thead>
         <tbody>

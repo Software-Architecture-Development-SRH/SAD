@@ -30,6 +30,11 @@ const Wrapper = styled.section`
     display: grid;
     place-items: center;
   }
+  label[required]::after {
+    content: '*';
+    color: red;
+    margin-left: 0.1em;
+  }
   @media (min-width: 992px) {
     .form-center {
       grid-template-columns: 1fr 1fr;

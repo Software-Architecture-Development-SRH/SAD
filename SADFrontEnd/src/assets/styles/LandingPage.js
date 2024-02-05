@@ -4,22 +4,23 @@ const Wrapper = styled.section`
   .nav {
     width: var(--fluid-width);
     max-width: var(--max-width);
-    margin: 0 auto;
     height: var(--nav-height);
-    display: flex;
+    display: block;
     align-items: center;
+    justify-content: center;
   }
   .nav-cont {
+    margin-left:6rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .logo-cont {
     flex-grow: 1;
-    margin: 1rem;
+    margin: 1rem 20rem;
   }
   .logo {
-    width: 150px;
+    width: 9rem;
     display: flex;
   }
 

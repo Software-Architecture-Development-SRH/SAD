@@ -29,7 +29,7 @@ const DashboardLayout = () => {
   const { user } = useLoaderData();
   const navigate = useNavigate();
   // for the Sidebar to toggel in mobile view
-  const [showSidebar, setShowSidebar] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
   // for the Theme to toggel white and black
   const [isDarkTheme, setDarkTheme] = useState(checkDefaultTheme());
 
@@ -44,7 +44,6 @@ const DashboardLayout = () => {
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
-    console.log("-------Side bar toggeled !");
   };
 
   const logoutUser = async () => {
