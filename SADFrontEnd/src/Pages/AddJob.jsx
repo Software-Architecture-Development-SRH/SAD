@@ -45,8 +45,8 @@ const AddJob = () => {
       <Form method="post" className="form">
         <h4 className="form-title">Add your applied job details here :</h4>
         <div className="form-center">
-          <FormRow type="text" name="position*"  required/>
-          <FormRow type="text" name="company*"  required/>
+          <FormRow type="text" name="position"  required/>
+          <FormRow type="text" name="company"  required/>
           <FormRow
             type="text"
             labelText="job location*"
