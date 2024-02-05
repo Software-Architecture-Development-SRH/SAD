@@ -1,52 +1,46 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
+    align-items: center;
+    justify-content: center;
   .nav {
     width: var(--fluid-width);
     max-width: var(--max-width);
-    margin: 0 auto;
     height: var(--nav-height);
-    display: flex;
+    display: block;
     align-items: center;
-    
-    background-color: #b148d2;
-    
+    justify-content: center;
   }
   .nav-cont {
+    margin-left:6rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5f5f5;
-    
   }
-  .logo-cont{
-
-    flex-grow:1;
-    margin: 0;
+  .logo-cont {
+    flex-grow: 1;
+    margin: 1rem 35rem;
   }
-  .logo{
-    width: 150px;
+  .logo {
+    width: 9rem;
     display: flex;
-    
   }
-  
-  
-
+  .main-img{
+    width: 36rem;
+  }
   .box {
     flex-grow: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
-    
   }
-  .page{
+  .page {
     min-height: calc(100vh - var(--nav-height));
     display: grid;
     align-items: center;
     margin-top: -3rem;
   }
-  
 
   h1 {
     font-weight: 900;
@@ -54,15 +48,15 @@ const Wrapper = styled.section`
       color: var(--primary-500);
     }
     margin-bottom: 1.5rem;
-    font-size: 2.3rem; 
+    font-size: 2.3rem;
   }
   p {
     line-height: 3;
     font-size: 1.2rem;
     font-style: italic;
     color: var(--text-secondary-color);
-    margin-bottom: 1.5rem;
-    max-width: 35em;
+    margin-bottom: 1rem;
+    max-width: 39em;
   }
   .register-link {
     margin-right: 1rem;
@@ -71,7 +65,7 @@ const Wrapper = styled.section`
     display: none;
   }
   .btn {
-    padding: 1.0rem 1rem;
+    padding: 1rem 1rem;
   }
   @media (min-width: 992px) {
     .page {
@@ -81,11 +75,11 @@ const Wrapper = styled.section`
     .main-img {
       display: block;
     }
-    .logo{
-    width: 180px;
-    display: flex;
-    margin: 1.75rem 17.8rem; 
-  }
+    .logo {
+      width: 180px;
+      display: flex;
+      margin: 1rem 17.8rem;
+    }
   }
 `;
 export default Wrapper;

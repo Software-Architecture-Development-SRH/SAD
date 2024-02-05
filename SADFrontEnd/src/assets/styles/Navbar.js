@@ -5,11 +5,12 @@ const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 1px 2px 0 0 rgba(0, 0, 0, 0.2);
   background: var(--background-secondary-color);
+  border-bottom: 1px solid var(--primary-900);
+  padding: 0 1.5rem;
   .nav-center {
     display: flex;
-    width: 90vw;
+    width: 100%;
     align-items: center;
     justify-content: space-between;
   }
@@ -28,7 +29,7 @@ const Wrapper = styled.nav`
   .logo {
     display: flex;
     align-items: center;
-    width: 90px;
+    width: 80px;
   }
   .btn-container {
     display: flex;

@@ -4,7 +4,6 @@ import {
   Admin,
   AllJobs,
   DashboardLayout,
-  DeleteJob,
   EditJob,
   Error,
   HomeLayout,
@@ -13,9 +12,22 @@ import {
   ProfilePage,
   RegisterPage,
   StatsPage,
+  Documents
 } from "./Pages";
-import {action as registerAction} from './Pages/RegisterPage';
-import {action as loginAction} from './Pages/Login';
+import { action as registerAction } from "./Pages/RegisterPage";
+import { action as landingPageAction } from "./Pages/LandingPage";
+import { action as loginAction } from "./Pages/Login";
+import { action as addJobAction } from "./Pages/AddJob";
+import { action as editJobAction } from "./Pages/EditJob";
+import { action as deleteJobAction } from "./Pages/DeleteJob";
+
+import {action as profileAction } from "./Pages/ProfilePage"
+import { loader as dashboardLoader } from "./Pages/DashboardLayout";
+import { loader as allJobsLoader } from "./Pages/AllJobs";
+import { loader as editJobLoader } from "./Pages/EditJob";
+import { loader as adminLoader } from "./Pages/Admin";
+import { loader as statsLoader } from "./Pages/StatsPage";
+
 
 
 export const checkDefaultTheme = () => {
@@ -28,13 +40,14 @@ checkDefaultTheme();
 const router = createBrowserRouter([
   {
     path: "/",
+    action: landingPageAction,
     element: <HomeLayout />,
     errorElement: <Error />,
     children: [
       {
         path: "register",
         element: <RegisterPage />,
-        action: registerAction, 
+        action: registerAction,
       },
       {
         path: "login",
@@ -48,35 +61,49 @@ const router = createBrowserRouter([
       },
       {
         path: "Dashboard",
-        element: <DashboardLayout />,
+        element:  (
+            <DashboardLayout />
+        ),
+        loader: dashboardLoader,
         children: [
           {
             index: true,
             element: <AddJob />,
+            action: addJobAction,
           },
           {
             path: "profile",
             element: <ProfilePage />,
+            action:  profileAction,
           },
           {
             path: "Stats",
             element: <StatsPage />,
+            loader: statsLoader,
           },
           {
-            path: "edit",
+            path: "edit/:singleJobId",
             element: <EditJob />,
+            action: editJobAction,
+            loader: editJobLoader,
           },
           {
-            path: "delete",
-            element: <DeleteJob />,
+            path: "delete/:id",
+            action: deleteJobAction,
           },
           {
             path: "alljobs",
             element: <AllJobs />,
+            loader: allJobsLoader,
           },
           {
             path: "admin",
             element: <Admin />,
+            loader: adminLoader,
+          },
+          {
+            path: "documents",
+            element: <Documents />,
           },
         ],
       },

@@ -5,8 +5,13 @@ const NavLinks = ({ isSidebar }) => {
   const { toggleSidebar, user } = useDashboardContext();
   return (
     <div className="nav-links">
-      {links.map((link) => {
-        const { text, path, icon } = link;
+      {links.map((links) => {
+        const { text, path, icon } = links;
+        // user role is not admin then not to show Amin link 
+        const {role}=user;
+        if(path==='admin' && role !=='admin')return;
+
+
         return (
           <NavLink
             to={path}
