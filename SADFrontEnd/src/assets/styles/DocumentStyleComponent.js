@@ -6,11 +6,12 @@ const Wrapper = styled.section`
     border-radius: var(--border-radius);
     display: grid;
     grid-template-rows: 1fr auto;
-    padding: 3rem 2rem 4rem;
+    padding: 2rem 2rem 4rem;
+    border: 1px solid var(--primary-800);
   }
 
   .text-here {
-    margin: 1rem;
+    margin-bottom: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,21 +40,23 @@ const Wrapper = styled.section`
     color: --text-color;
     cursor: pointer;
     margin-top: 1rem;
-    margin: 1rem auto; /* Center the element horizontally */
+    margin: 1rem auto;
     display: flex;
     justify-content: center;
-    align-items: center; /* Center the content vertically */
+    align-items: center; 
   }
   table {
     width: 100%;
-    margin-top: 3rem;
+    margin: 1rem auto;
+
   }
 
   th,
   td {
+    
     border: 1px solid var(--text-color);
     padding: 1rem;
-    text-align: left;
+    text-align: center;
   }
 
   th {

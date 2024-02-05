@@ -58,15 +58,15 @@ const LandingPage = () => {
           </h1>
           <p>
             Streamline your job search with JobVigil – the ultimate web app for
-            tracking job applications. Effortlessly manage and organize your
-            applications online. Stay on top of updates and take control of your
+            tracking applied job applications. Effortlessly manage and organize your
+            applications online for easy access wherever and whenever needed. Stay on top of updates and take control of your
             career journey!
           </p>
           <button type="button" className="btn btn-block" onClick={loginDemoUser}>
-          Explore without Login
+          <h2><b>Explore dashboard feature</b></h2>
         </button>
         </div>
-        <img src={MainImage} alt="job hunt" className="img main-img" />
+        <img src={MainImage} alt="job hunt" className=" main-img" />
       </div>
     </Wrapper>
   );

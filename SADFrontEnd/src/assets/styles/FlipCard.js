@@ -40,6 +40,7 @@ const Wrapper = styled.section`
     background: var(--background-secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-2);
+
   }
 
   .flip-card-back {
@@ -47,8 +48,13 @@ const Wrapper = styled.section`
     background: var(--background-secondary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-2);
+    border: 1px double var(--primary-800);
   }
 
+  h1{
+    color:var(--primary-600);
+    font-size:1.5rem;
+  }
   /* Style the content inside the card */
   h2, h4, p {
     margin: 1rem;

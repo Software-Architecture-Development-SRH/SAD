@@ -46,8 +46,8 @@ const FlipCard = () => {
         <div className="flip-card-inner">
           {/* Front of the card with information */}
           <div className="flip-card-front">
-            <h1><b>Motivational Quote :</b></h1>
-            <p className='cursor'>Bring cursor here to keep yourself motivated !</p>
+            <h1><b>Hey, keep yourself motivated :</b></h1>
+            <p className='cursor'>Bring cursor here to  !</p>
           </div>
 
           {/* Back of the card with an image and motivational quote */}
