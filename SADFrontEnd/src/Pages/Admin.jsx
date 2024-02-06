@@ -2,12 +2,13 @@ import { useLoaderData, redirect } from 'react-router-dom';
 import customFetch2 from '../Utils/customFetch2';
 import Wrapper from '../assets/styles/StatsContainer';
 import { toast } from 'react-toastify';
-import { FaSuitcaseRolling, FaCalendarCheck } from 'react-icons/fa';
+import { FaSuitcaseRolling, FaCalendarCheck, FaUsers, FaBriefcase } from 'react-icons/fa';
 import { StatItem } from '../components';
 
 export const loader = async () => {
   try {
     const response = await customFetch2.get('/users/admin/app-stats');
+    console.log(response.data)
     return response.data;
   } catch (error) {
     toast.error('Sorry you are not authorized to view this page !');
@@ -23,16 +24,16 @@ const Admin = () => {
     <StatItem 
     title='current users' 
     count={users}
-    color='#e9b949' 
-    bcg='#fcefc7' 
-    icon={<FaSuitcaseRolling />}
+    color='#26c164' 
+    bcg='#b2f5cd' 
+    icon={<FaUsers/>}
     />
     <StatItem 
     title='total jobs' 
     count={jobs}
-    color='#647acb' 
-    bcg='#e0e8f9'   
-    icon={<FaCalendarCheck />}
+    color='#4175c2' 
+    bcg='#b9cce7'   
+    icon={<FaBriefcase />}
     />
         {/* <StatItem 
     title='total Documents' 
