@@ -23,11 +23,14 @@ export const action = async({request}) => {
 }
 const ProfilePage = () => {
   const { user } = useOutletContext();
-  const { name, lastName, email, location } = user;
+  const { name, lastName, email, location, avatar } = user;
 
   return <Wrapper>
     <Form method='post' className='form' encType='multipart/form-data'>
-        <h4 className='form-title'>profile</h4>
+      <div style={{display: 'flex', alignItems: 'center', gap: '10px', paddingBottom: '50px'}}>
+        <h2 className='form-title' style={{margin: '0'}}>{`Hello ${name}!`}</h2>
+        {typeof avatar !== 'undefined' && <img src={avatar} alt='avatar' style={{width: '100px', height: '100px', borderRadius: '100%', objectFit:'cover'}} />}
+      </div>
         <div className='form-center'>
           <div className="form-row">
             <label htmlFor='avatar' className='form-label'>
