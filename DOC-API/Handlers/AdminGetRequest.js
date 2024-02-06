@@ -16,8 +16,6 @@ export const getROOTAll = (req, res) => {
     if (typeOfDocs !== 'CV' && typeOfDocs !== 'COVER_LETTER' && typeOfDocs !== 'CERTIFICATE') {
         return res.status(400).json({ error: 'Type Of Document is invalid!', msg: typeOfDocs });
       }      
-  
-  
     const folderName = `${typeOfDocs}/${email}`;
 
 // Call the resources API with the specified folder prefix

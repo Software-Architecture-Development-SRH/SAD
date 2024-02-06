@@ -41,29 +41,30 @@ const EditJob = () => {
         <Form method="post" className="form">
         <h4 className="form-title">Edit job :</h4>
         <div className="form-center">
-          <FormRow type="text" name="position" defaultValue={job.position}/>
-          <FormRow type="text" name="company" defaultValue={job.company}/>
+          <FormRow type="text" name="position" defaultValue={job.position} required/>
+          <FormRow type="text" name="company" defaultValue={job.company} required/>
           <FormRow
             type="text"
-            labelText="job location"
+            labelText="job location*"
             name="jobLocation"
             defaultValue={job.jobLocation}
+            required
           />
           <FormRowSelect
-            labelText="job status"
+            labelText="job status*"
             name="jobStatus"
             defaultValue={job.jobStatus}
             list={Object.values(JOB_STATUS)}
           />
           <FormRowSelect
-            labelText="job type"
+            labelText="job type*"
             name="jobType"
             defaultValue={job.jobType}
             list={Object.values(JOB_TYPE)}
           />
           <FormRow
             type="date"
-            labelText="Add Date"
+            labelText="Add Date*"
             name="jobDate"
             defaultValue={format(new Date(), "yyyy-MM-dd")}
           />

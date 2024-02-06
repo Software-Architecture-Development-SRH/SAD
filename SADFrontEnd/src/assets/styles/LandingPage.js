@@ -1,28 +1,33 @@
 import styled from "styled-components";
 
 const Wrapper = styled.section`
+    align-items: center;
+    justify-content: center;
   .nav {
     width: var(--fluid-width);
     max-width: var(--max-width);
-    margin: 0 auto;
     height: var(--nav-height);
-    display: flex;
+    display: block;
     align-items: center;
+    justify-content: center;
   }
   .nav-cont {
+    margin-left:6rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .logo-cont {
     flex-grow: 1;
-    margin: 1rem;
+    margin: 1rem 35rem;
   }
   .logo {
-    width: 150px;
+    width: 9rem;
     display: flex;
   }
-
+  .main-img{
+    width: 36rem;
+  }
   .box {
     flex-grow: 1;
     display: flex;
@@ -50,8 +55,8 @@ const Wrapper = styled.section`
     font-size: 1.2rem;
     font-style: italic;
     color: var(--text-secondary-color);
-    margin-bottom: 1.5rem;
-    max-width: 35em;
+    margin-bottom: 1rem;
+    max-width: 39em;
   }
   .register-link {
     margin-right: 1rem;
@@ -73,7 +78,7 @@ const Wrapper = styled.section`
     .logo {
       width: 180px;
       display: flex;
-      margin: 1.75rem 17.8rem;
+      margin: 1rem 17.8rem;
     }
   }
 `;
