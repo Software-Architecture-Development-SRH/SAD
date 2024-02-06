@@ -8,7 +8,7 @@ import Wrapper from '../assets/styles/ChartsContainer';
 const ChartsContainer = ({data}) => {
   const [barChart, setBarChart] = useState(true)
   return <Wrapper>
-    <h4>Monthly Application</h4>
+    <h4>Monthly Application Count</h4>
     <button type ='button' onClick={ ()=> setBarChart(!barChart)}>
       {barChart? 'Area Chart': 'Bar Chart'}
 
