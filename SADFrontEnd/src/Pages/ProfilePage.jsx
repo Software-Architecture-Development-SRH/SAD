@@ -27,9 +27,12 @@ const ProfilePage = () => {
 
   return <Wrapper>
     <Form method='post' className='form' encType='multipart/form-data'>
-      <div style={{display: 'flex', alignItems: 'center', gap: '10px', paddingBottom: '50px'}}>
-        <h2 className='form-title' style={{margin: '0'}}>{`Hello ${name}!`}</h2>
+
+      <div style={{display: 'flex', alignItems: 'center',justifyContent:'center',marginTop: '-2rem', marginBottom:'1rem',paddingBottom:'0.5rem'}} >
         {typeof avatar !== 'undefined' && <img src={avatar} alt='avatar' style={{width: '100px', height: '100px', borderRadius: '100%', objectFit:'cover'}} />}
+        </div>
+        <div style={{display: 'flex', alignItems: 'center',justifyContent:'center', gap: '10px', paddingBottom: '50px'}}>
+        <h2 className='form-title' style={{margin: '0',color:'#9614d0'}}><b>{`Hello ${name}!`} 😃</b></h2>
       </div>
         <div className='form-center'>
           <div className="form-row">
