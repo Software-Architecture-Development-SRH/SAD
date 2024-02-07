@@ -83,7 +83,7 @@ const CvComponent = () => {
         toast.error('Please upload a valid image file.');
         return;
       }
-
+      
       await customFetch3.post('/pushCV', formData);
 
       // Refetch resources after upload
