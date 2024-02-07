@@ -41,8 +41,8 @@ const EditJob = () => {
         <Form method="post" className="form">
         <h4 className="form-title">Edit job :</h4>
         <div className="form-center">
-          <FormRow type="text" name="position*" defaultValue={job.position} required/>
-          <FormRow type="text" name="company*" defaultValue={job.company} required/>
+          <FormRow type="text" name="position" defaultValue={job.position} required/>
+          <FormRow type="text" name="company" defaultValue={job.company} required/>
           <FormRow
             type="text"
             labelText="job location*"
