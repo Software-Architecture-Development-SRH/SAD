@@ -1,7 +1,7 @@
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import Wrapper from '../assets/styles/PageBtnContainer';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { useAllJobsContext } from '../pages/AllJobs';
+import { useAllJobsContext } from '../Pages/AllJobs';
 
 const PageBtnContainer = () => {
     //using a array of 10 and passing the pagenumbers via these 10 values.
